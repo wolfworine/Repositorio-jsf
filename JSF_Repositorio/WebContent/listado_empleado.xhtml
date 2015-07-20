@@ -1,0 +1,76 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+
+<h:head>
+	
+</h:head>
+
+<h:form>
+
+<p:growl id="mensaje" life="3000" ></p:growl>
+
+<p:dataTable id="grilla" value="#{mantEmpleado.empleados}" var="e" rows="7"
+	paginator="true"  selection="#{mantEmpleado.selecEmpleado}"
+	selectionMode="single" rowKey="#{e.id}"
+	 >
+
+	<p:column headerText="Id">
+		#{e.id}
+	</p:column>
+
+	<p:column headerText="Nombre">
+		
+		#{e.nombre}
+	</p:column>
+
+	<p:column headerText="Apellido">
+		#{e.apellido}
+	</p:column>
+
+	<p:column headerText="Fecha Nacimiento">
+
+		<h:outputText value="#{e.fechaNacimiento}">
+			<f:convertDateTime pattern="yyyy-MM-dd"></f:convertDateTime>
+		</h:outputText>
+
+
+	</p:column>
+
+	<p:column headerText="DNI">
+		
+		#{e.dni}
+	</p:column>
+
+
+	<p:column headerText="Departamento">
+		
+		#{e.departamento.nombre}
+	</p:column>
+
+
+</p:dataTable>
+
+<p:commandButton value = "Modificar" action="#{mantEmpleado.modificar}"
+ ajax="false">
+ </p:commandButton>
+ 
+ 
+<p:commandButton value = "Eliminar" action="#{mantEmpleado.eliminar}"
+ajax="false">
+ </p:commandButton>
+
+</h:form>
+
+
+
+
+
+
+
+
+</html>

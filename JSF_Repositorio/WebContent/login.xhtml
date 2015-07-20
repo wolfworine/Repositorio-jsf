@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	 xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/templates/BasicTemplate.xhtml">
+
+	<ui:define name="content">
+	<h:form>
+			<p:panel style="position:absolute; top:40%; left:40%; border:none; background-color:navy;">
+
+				<p:panelGrid columns="2" style="border:none;">
+					<p:outputLabel value="Usuario" style="color:navy; font-weight:bold; font-size:12px;border:none;"></p:outputLabel>
+					<p:inputText value="#{usuario.usernom}"></p:inputText>
+					<p:outputLabel value="Password" style="color:navy; font-weight:bold; font-size:12px;border:none;"></p:outputLabel>
+					<p:password value="#{usuario.userpwd}"></p:password>
+					
+				</p:panelGrid>
+				<f:facet name="footer" style="border:none;"> 
+						<p:commandButton value="Acceder" action="#{usuario.Validar}" icon="fa fa-user"></p:commandButton>
+
+					</f:facet>
+			</p:panel>	
+	</h:form>
+
+</ui:define></ui:composition>
+</html>

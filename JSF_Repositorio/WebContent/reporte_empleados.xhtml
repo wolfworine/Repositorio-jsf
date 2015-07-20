@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<h:outputStylesheet library="css" name="table-style.css" />
+</h:head>
+
+
+<h:form>
+	<p:menubar>
+		<p:submenu label="Mantenimientos">
+			<p:menuitem value="Empleado" outcome="registro_empleado2" />
+			<p:menuitem value="Departamento" outcome="registro_departamento" />
+		</p:submenu>
+
+		<p:submenu label="Reportes">
+						<p:menuitem value="Empledos por Departamento" outcome="reporte_empleados"/>
+
+		</p:submenu>
+
+	</p:menubar>
+	
+	</h:form>
+
+
+
+<p:chart type="pie" model="#{reporteEmpleadoDepartamentoMB.pieModel1}" style="width:400px;height:300px" />
+
+
+</html>

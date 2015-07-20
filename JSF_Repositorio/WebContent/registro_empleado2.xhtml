@@ -1,0 +1,115 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+
+<h:head>
+	<h:outputStylesheet library="css" name="table-style.css" />
+</h:head>
+
+<h:form>
+
+
+	<p:menubar>
+		<p:submenu label="Mantenimientos">
+			<p:menuitem value="Empleado" outcome="registro_empleado2" />
+			<p:menuitem value="Departamento" outcome="registro_departamento" />
+		</p:submenu>
+
+		<p:submenu label="Reportes">
+			<p:menuitem value="Empledos por Departamento" outcome="reporte_empleados"/>
+
+		</p:submenu>
+
+	</p:menubar>
+
+	<h2>Mantenimiento de Empleado</h2>
+	<p:panelGrid columns="2">
+		<h:outputText value="Nombre" />
+		<p:inputText id="nombre" value="#{empleadoManagedBean.empleado.nombre}">
+		</p:inputText>
+
+		<h:outputText value="Apellido" />
+		<p:inputText id="apellido"  value="#{empleadoManagedBean.empleado.apellido}">
+		</p:inputText>
+
+		<h:outputText value="Fecha de Nacimiento" />
+		<p:calendar id="fechaNac" value="#{empleadoManagedBean.empleado.fechaNacimiento}">
+
+		</p:calendar>
+
+
+
+		<h:outputText value="DNI" />
+		<p:inputText id="dni" value="#{empleadoManagedBean.empleado.dni}">
+		</p:inputText>
+
+		<h:outputText value="Departamento" />
+
+		<p:selectOneMenu id="dep"
+			value="#{empleadoManagedBean.empleado.departamento.id}">
+			<f:selectItems var="d" value="#{empleadoManagedBean.departamentos}"
+				itemLabel="#{d.nombre}" itemValue="#{d.id}"></f:selectItems>
+
+		</p:selectOneMenu>
+
+
+	</p:panelGrid>
+	<p:commandButton  value="Registrar" update="nombre,apellido,fechaNac,dni,dep,grilla"
+		action="#{empleadoManagedBean.registrar}"  />
+
+
+<p:dataTable id="grilla" value="#{empleadoManagedBean.empleados}" var="e" rows="7"
+	paginator="true">
+
+
+	<p:column headerText="Id">
+		#{e.id}
+	</p:column>
+
+	<p:column headerText="Nombre">
+		
+		#{e.nombre}
+	</p:column>
+
+	<p:column headerText="Apellido">
+		#{e.apellido}
+	</p:column>
+
+	<p:column headerText="Fecha Nacimiento">
+
+		<h:outputText value="#{e.fechaNacimiento}">
+			<f:convertDateTime pattern="yyyy-MM-dd"></f:convertDateTime>
+		</h:outputText>
+
+
+	</p:column>
+
+	<p:column headerText="DNI">
+		
+		#{e.dni}
+	</p:column>
+
+
+	<p:column headerText="Departamento">
+		
+		#{e.departamento.nombre}
+	</p:column>
+
+
+</p:dataTable>
+
+
+</h:form>
+
+
+
+
+
+
+
+
+</html>
