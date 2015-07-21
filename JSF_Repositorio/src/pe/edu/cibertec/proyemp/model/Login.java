@@ -16,8 +16,8 @@ public class Login {
 	@Column(name="id",nullable=false,unique=true)
 	private Long id;
 	
-	@Column(name="usuario",nullable=false)
-	private String usuario;
+	@Column(name="email",nullable=false)
+	private String email;
 	
 	@Column(name="password",nullable=false)
 	private String password;
@@ -28,10 +28,10 @@ public class Login {
 		super();
 	}
 
-	public Login(Long id, String usuario, String password) {
+	public Login(Long id, String email, String password) {
 		super();
 		this.id = id;
-		this.usuario = usuario;
+		this.email = email;
 		this.password = password;
 	}
 
@@ -43,13 +43,6 @@ public class Login {
 		this.id = id;
 	}
 
-	public String getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
-	}
 
 	public String getPassword() {
 		return password;
@@ -59,11 +52,21 @@ public class Login {
 		this.password = password;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	@Override
 	public String toString() {
-		return "Login [id=" + id + ", usuario=" + usuario + ", password="
+		return "Login [id=" + id + ", email=" + email + ", password="
 				+ password + "]";
 	}
+
+
 	
 	
 	

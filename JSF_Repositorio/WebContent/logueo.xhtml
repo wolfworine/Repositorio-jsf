@@ -4,6 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:pt="http://java.sun.com/jsf/composite/placeholders"
     xmlns:f="http://java.sun.com/jsf/core"
      xmlns:p="http://primefaces.org/ui">
 
@@ -80,32 +81,35 @@
             <!-- Login Block -->
             <div class="block push-bit">
                 <!-- Login Form -->
-                <form action="#{request.contextPath}/welcome.xhtml" method="post" id="form-login" class="form-horizontal form-bordered form-control-borderless">
+                <h:form id="form-login" class="form-horizontal form-bordered form-control-borderless">
                     <div class="form-group">
                         <div class="col-xs-12">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="gi gi-envelope"></i></span>
-                                <input type="text" id="login-email" name="login-email" class="form-control input-lg" placeholder="Email" />
+                                
+                                <p:inputText value="#{usuario.email}" id="login-email" name="login-email" required="true" styleClass="form-control input-lg" placeholder="Email" ></p:inputText>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-xs-12">
                             <div class="input-group">
-                                <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
-                                <input type="password" id="login-password" name="login-password" class="form-control input-lg" placeholder="Password"/>
+                                <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>                             
+                           		<p:password value="#{usuario.password}" id="login-password" name="login-password" class="form-control input-lg" placeholder="Password"></p:password>
                             </div>
                         </div>
                     </div>
                     <div class="form-group form-actions">
                         <div class="col-xs-4">
                             <label class="switch switch-primary" data-toggle="tooltip" title="Remember Me?">
+<!--                             	<h:selectBooleanCheckbox value="Remember Me" id="chkRememberMe" /> -->
                                 <input type="checkbox" id="login-remember-me" name="login-remember-me" />
                                 <span></span>
                             </label>
                         </div>
                         <div class="col-xs-8 text-right">
-                            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Login to Dashboard</button>
+                        <p:commandButton action="#{loginManagedBean.validar}"  styleClass="btn btn-sm btn-primary" icon="fa fa-arrow-right" value="Login to Dashboard"></p:commandButton>
+                       
                         </div>
                     </div>
                     <div class="form-group">
@@ -114,7 +118,7 @@
                             <a href="javascript:void(0)" id="link-register-login"><small>Create a new account</small></a>
                         </div>
                     </div>
-                </form>
+                  </h:form>
                 <!-- END Login Form -->
 
 
