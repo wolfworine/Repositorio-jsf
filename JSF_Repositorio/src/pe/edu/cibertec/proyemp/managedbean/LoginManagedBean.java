@@ -8,12 +8,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
-
-
 import javax.faces.context.FacesContext;
-import javax.faces.view.facelets.FaceletContext;
-
-import org.springframework.web.servlet.HttpServletBean;
 
 import pe.edu.cibertec.proyemp.model.Login;
 import pe.edu.cibertec.proyemp.service.LoginService;
@@ -24,14 +19,18 @@ import com.google.common.collect.Lists;
 @RequestScoped
 public class LoginManagedBean {
 	
+	@SuppressWarnings("unused")
 	private String email,password;
 
 
+	
 	private List<Login> logins = new ArrayList<Login>();
 	
 	private Login selecLogin = new Login();
 	
-	private Login valido = new Login();
+	private List<Login> valido = new ArrayList<Login>();
+	
+	private Login login = new Login();
 
 	@ManagedProperty(value = "#{loginService}")
 	private LoginService loginService;
@@ -39,6 +38,8 @@ public class LoginManagedBean {
 
 	@PostConstruct
 	public void init(){
+		
+		FacesContext context = FacesContext.getCurrentInstance();
 		logins = Lists.newArrayList(
 				loginService.getLoginRepository().findAll());
 	}
@@ -49,6 +50,9 @@ public class LoginManagedBean {
 		return logins;
 	}
 
+	
+	
+	
 	public void setLogins(List<Login> logins) {
 		this.logins = logins;
 	}
@@ -71,44 +75,43 @@ public class LoginManagedBean {
 
 	public String  validar() {
 		// TODO Auto-generated method stub
-		valido = loginService.getLoginRepository().getValidarUsuarioyPassword(
-				email, password);
+		valido = loginService.
+				getLoginRepository().findbyEmailandPassword(login.getEmail(), login.getPassword());
 		
-		if (valido==null || valido.equals("")) {
+		System.out.println(valido);
+		
+		if (valido==null || valido.isEmpty()) {
 			FacesContext context = FacesContext.getCurrentInstance();
 			context.addMessage(null, new FacesMessage(
 					"Usuario y/o Contraseña incorrectos"
 					));
 			
-			return "logueo";
+			return "/logueo.xhtml";
 		}else {
 			FacesContext context = FacesContext.getCurrentInstance();
 			context.addMessage(null, new FacesMessage(
 					"Bienvenido " + email+ " actualizado"
 					));
-			return "welcome";
+			return "/welcome.xhtml?faces-redirect=true";
 		}
-		
+	}
+
+	public List<Login> getValido() {
+		return valido;
+	}
+
+	public void setValido(List<Login> valido) {
+		this.valido = valido;
+	}
+
+	public Login getLogin() {
+		return login;
+	}
+
+	public void setLogin(Login login) {
+		this.login = login;
 	}
 	
-	public String getEmail() {
-		return email;
-	}
-
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-
-	public String getPassword() {
-		return password;
-	}
-
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
 	
 	
 }

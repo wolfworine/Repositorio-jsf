@@ -1,5 +1,7 @@
 package pe.edu.cibertec.proyemp.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -10,10 +12,13 @@ import pe.edu.cibertec.proyemp.model.Login;
 @Repository
 public interface LoginRepository extends CrudRepository<Login, Long>{
 
-	
-	@Query(value="select l from login l "
-			+ " where l.email like %:email% and l.password = :password")
-	Login getValidarUsuarioyPassword( 
+    public final static String FIND_BY_EMAIL_PASSWORD= "SELECT p " + 
+            "FROM Login p " +
+            "WHERE p.email = :email "+
+            "and p.password = :password";
+    
+	@Query(FIND_BY_EMAIL_PASSWORD)
+	public List<Login> findbyEmailandPassword( 
 			@Param("email") String email,
 			@Param("password") String password);
 
