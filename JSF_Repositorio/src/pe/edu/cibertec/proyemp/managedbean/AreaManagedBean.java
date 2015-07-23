@@ -1,5 +1,4 @@
 package pe.edu.cibertec.proyemp.managedbean;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,12 +14,17 @@ import com.google.common.collect.Lists;
 
 @ManagedBean
 @RequestScoped
-public class AreaManagedBean {
+public class AreaManagedBean{
 	
+
 
 	private List<Area> areas = new ArrayList<Area>();
 	
+	private List<Area> filteredAreas = new ArrayList<Area>();
+	
 	private Area selecArea = new Area();
+	
+	private Area busqueda = new Area();
 	
 	@ManagedProperty(value = "#{areaService}")
 	private AreaService areaService;
@@ -38,6 +42,8 @@ public class AreaManagedBean {
 		return areas;
 	}
 
+
+	
 	public void setAreas(List<Area> areas) {
 		this.areas = areas;
 	}
@@ -59,6 +65,30 @@ public class AreaManagedBean {
 	public void setSelecArea(Area selecArea) {
 		this.selecArea = selecArea;
 	}
+
+
+	public List<Area> getFilteredAreas() {
+		return filteredAreas;
+	}
+
+
+	public void setFilteredAreas(List<Area> filteredAreas) {
+		this.filteredAreas = filteredAreas;
+	}
+	
+	
+
+	public Area getBusqueda() {
+		return busqueda;
+	}
+
+
+	public void setBusqueda(Area busqueda) {
+		this.busqueda = busqueda;
+	}
+
+
+
 	
 	
 	

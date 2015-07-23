@@ -13,7 +13,7 @@ import javax.persistence.Table;
 public class Area {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id",nullable=false,unique=true)
 	private Long id;
 	
@@ -27,6 +27,7 @@ public class Area {
 		super();
 	}
 	
+
 	public Area(Long id, String codigo, String area) {
 		super();
 		this.id = id;
@@ -34,13 +35,17 @@ public class Area {
 		this.area = area;
 	}
 
+
 	public Long getId() {
 		return id;
 	}
+
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-		
+
+
 	public String getCodigo() {
 		return codigo;
 	}
@@ -56,12 +61,11 @@ public class Area {
 		this.area = area;
 	}
 
+
 	@Override
 	public String toString() {
 		return "Area [id=" + id + ", codigo=" + codigo + ", area=" + area + "]";
 	}
 
-
-	
 	
 }

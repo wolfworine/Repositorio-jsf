@@ -3,6 +3,7 @@ package pe.edu.cibertec.proyemp.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,9 +12,12 @@ import javax.persistence.Table;
 public class Ubicacion {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id",nullable=false,unique=true)
 	private Long id;
+	
+	@Column(name="codigo",nullable=false,length=50)
+	private String codigo;
 	
 	@Column(name="ubicacion", nullable=false, length=200)
 	private String ubicacion;
@@ -22,11 +26,13 @@ public class Ubicacion {
 		super();
 	}
 
-	public Ubicacion(Long id, String ubicacion) {
+	public Ubicacion(Long id, String codigo, String ubicacion) {
 		super();
 		this.id = id;
+		this.codigo = codigo;
 		this.ubicacion = ubicacion;
 	}
+
 
 	public Long getId() {
 		return id;
@@ -34,6 +40,14 @@ public class Ubicacion {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
 	}
 
 	public String getUbicacion() {
@@ -46,8 +60,13 @@ public class Ubicacion {
 
 	@Override
 	public String toString() {
-		return "Ubicacion [id=" + id + ", ubicacion=" + ubicacion + "]";
+		return "Ubicacion [id=" + id + ", codigo=" + codigo + ", ubicacion="
+				+ ubicacion + "]";
 	}
+
+
+
+	
 	
 	
 
