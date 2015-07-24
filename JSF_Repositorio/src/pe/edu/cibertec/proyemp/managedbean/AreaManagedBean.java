@@ -16,8 +16,6 @@ import com.google.common.collect.Lists;
 @RequestScoped
 public class AreaManagedBean{
 	
-
-
 	private List<Area> areas = new ArrayList<Area>();
 	
 	private List<Area> filteredAreas = new ArrayList<Area>();
@@ -42,7 +40,12 @@ public class AreaManagedBean{
 		return areas;
 	}
 
-
+/*	public String buscar() {
+		filteredAreas =		areaService.getAreaRepository().
+				findByCodigoOrArea(busqueda.getCodigo(), busqueda.getArea());
+		return null;
+	}*/
+	
 	
 	public void setAreas(List<Area> areas) {
 		this.areas = areas;
@@ -87,10 +90,6 @@ public class AreaManagedBean{
 		this.busqueda = busqueda;
 	}
 
-
-
-	
-	
 	
 	
 }

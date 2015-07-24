@@ -44,28 +44,20 @@
              		  <div class="table-responsive">
 					   <p:dataTable  styleClass="table table-vcenter table-condensed table-bordered" value="#{areaManagedBean.areas}" var="area" rows="20"
 						paginator="true"  selection="#{areaManagedBean.selecArea}" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
-						selectionMode="single" rowKey="#{area.id}"  >
+						selectionMode="single" rowKey="#{area.id}" filterValue="#{area.filteredAreas}" >
 						
-						<f:facet name="header">
-				            <p:outputPanel>
-				                <h:outputText value="Search all fields:" />
-				                <p:inputText  value="#{busqueda.codigo}"	 style="width:150px" placeholder="codigo"/>
-						        <p:inputText  value="#{busqueda.area}"  style="width:150px" placeholder="nombre"/> &nbsp;
-				                <p:commandButton action="#" ajax="false" styleClass="btn btn-sm btn-primary" icon="fa fa-arrow-right" value="Buscar"></p:commandButton>
-                       
-				            </p:outputPanel>
-				        </f:facet>
+			
 					
-						<p:column headerText="Id" styleClass="text-center"> 
+						<p:column filterBy="#{area.id}" headerText="Id" styleClass="text-center"> 
 							#{area.id} 
  						</p:column> 
 					
-						<p:column headerText="Codigo" styleClass="text-center">
+						<p:column  filterBy="#{area.codigo}" headerText="Codigo" styleClass="text-center">
 							
 							#{area.codigo}
 						</p:column>
 					
-						<p:column headerText="Area" styleClass="text-center" >
+						<p:column filterBy="#{area.area}" headerText="Area" styleClass="text-center">
 						<span class="label label-primary text-left">#{area.area}</span>
 						</p:column>
 						

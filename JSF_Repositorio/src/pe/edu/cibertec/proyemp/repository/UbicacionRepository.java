@@ -8,4 +8,6 @@ import pe.edu.cibertec.proyemp.model.Ubicacion;
 @Repository
 public interface UbicacionRepository extends CrudRepository<Ubicacion, Long>{
 
+	
+	
 }
