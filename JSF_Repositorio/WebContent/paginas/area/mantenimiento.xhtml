@@ -43,15 +43,12 @@
              		<h:form>
              		  <div class="table-responsive">
 					   <p:dataTable  styleClass="table table-vcenter table-condensed table-bordered" value="#{areaManagedBean.areas}" var="area" rows="20"
-						paginator="true"  selection="#{areaManagedBean.selecArea}" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
-						selectionMode="single" rowKey="#{area.id}" filterValue="#{area.filteredAreas}" >
+						paginator="true"  selection="#{areaManagedBean.selecArea}" 
+						selectionMode="single" rowKey="#{area.id}" filterValue="#{areaManagedBean.filteredAreas}" >
 						
 			
 					
-						<p:column filterBy="#{area.id}" headerText="Id" styleClass="text-center"> 
-							#{area.id} 
- 						</p:column> 
-					
+				
 						<p:column  filterBy="#{area.codigo}" headerText="Codigo" styleClass="text-center">
 							
 							#{area.codigo}
