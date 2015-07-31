@@ -19,6 +19,8 @@ public class UsuarioManagedBean {
 
 	private List<Usuario> usuarios= new ArrayList<Usuario>();
 	
+	private List<Usuario> filteredUsuarios= new ArrayList<Usuario>();
+	
 	private Usuario selecUsuario= new Usuario();
 
 	@ManagedProperty(value = "#{usuarioService}")
@@ -54,6 +56,14 @@ public class UsuarioManagedBean {
 
 	public void setUsuarioService(UsuarioService usuarioService) {
 		this.usuarioService = usuarioService;
+	}
+
+	public List<Usuario> getFilteredUsuarios() {
+		return filteredUsuarios;
+	}
+
+	public void setFilteredUsuarios(List<Usuario> filteredUsuarios) {
+		this.filteredUsuarios = filteredUsuarios;
 	}
 	
 	

@@ -45,29 +45,29 @@
 						paginator="true"  selection="#{rolManagedBean.selecRol}" 
 						selectionMode="single" rowKey="#{r.id}" filterValue="#{rolManagedBean.filteredRoles}" >
 					
-						<p:column  filterBy="#{r.nombre}" headerText="Nombre" styleClass="text-center">
+						<p:column  filterBy="#{r.nombre}" headerText="Nombre" styleClass="text-center" width="300">
 							
 							#{r.nombre}
 						</p:column>
 					
-						<p:column filterBy="#{r.tipo}" headerText="Tipo" >
+						<p:column filterBy="#{r.tipo}" headerText="Tipo"  width="100">
 						<span class="label label-primary">#{r.tipo}</span>
 						</p:column>
 							
-						<p:column filterBy="#{r.ubicacion}" headerText="Ubicacion" >
+						<p:column filterBy="#{r.ubicacion}" headerText="Ubicacion" styleClass="text-center" width="100">
 						<span class="label label-primary">#{r.ubicacion}</span>
 						</p:column>
 						
 					
-						<p:column filterBy="#{r.area}" headerText="Area" >
+						<p:column filterBy="#{r.area}" headerText="Area" width="200">
 						<span class="label label-primary">#{r.area}</span>
 						</p:column>
 						
-						<p:column filterBy="#{r.cargo}" headerText="Cargo" >
+						<p:column filterBy="#{r.cargo}" headerText="Cargo" width="200">
 						<span class="label label-primary">#{r.area}</span>
 						</p:column>
 						
-						<p:column filterBy="#{r.ambito}" headerText="Ambito" >
+						<p:column filterBy="#{r.ambito}" headerText="Ambito" width="100">
 						<span class="label label-primary">#{r.ambito}</span>
 						</p:column>
 						
