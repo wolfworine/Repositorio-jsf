@@ -14,7 +14,7 @@ public class Cargo {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id",nullable=false,unique=true, length=50)
+	@Column(name="id",nullable=false,unique=true)
 	private Long id;
 	
 	@Column(name="codigo",nullable=false,length=50)

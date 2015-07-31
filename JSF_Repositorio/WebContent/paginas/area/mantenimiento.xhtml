@@ -44,17 +44,15 @@
              		  <div class="table-responsive">
 					   <p:dataTable  styleClass="table table-vcenter table-condensed table-bordered" value="#{areaManagedBean.areas}" var="area" rows="20"
 						paginator="true"  selection="#{areaManagedBean.selecArea}" 
-						selectionMode="single" rowKey="#{area.id}" filterValue="#{areaManagedBean.filteredAreas}" >
-						
-			
-					
+						selectionMode="single" rowKey="#{area.codigo}" filterValue="#{areaManagedBean.filteredAreas}" >
+
 				
 						<p:column  filterBy="#{area.codigo}" headerText="Codigo" styleClass="text-center">
 							
 							#{area.codigo}
 						</p:column>
 					
-						<p:column filterBy="#{area.area}" headerText="Area" styleClass="text-center">
+						<p:column filterBy="#{area.area}" headerText="Area" >
 						<span class="label label-primary text-left">#{area.area}</span>
 						</p:column>
 						
