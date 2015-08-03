@@ -39,5 +39,9 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-web-4.0.3.RELEASE.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-webmvc-4.0.3.RELEASE.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/primefaces-5.2.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/poi-3.7.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/itext-2.1.7.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/poi-ooxml-3.7.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/poi-ooxml-schemas-3.7.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
