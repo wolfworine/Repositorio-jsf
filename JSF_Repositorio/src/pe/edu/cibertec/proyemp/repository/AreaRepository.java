@@ -9,7 +9,7 @@ import pe.edu.cibertec.proyemp.model.Area;
 @Repository
 public interface AreaRepository  extends CrudRepository<Area, Long>{
 
-/* public final static String FIND_BY_CODIGO_NOMBRE= "SELECT a " + 
+/*	public final static String FIND_BY_CODIGO_NOMBRE= "SELECT a " + 
 	            "FROM Area a " +
 	            "WHERE a.codigo = :codigo "+
 	            "or a.area = :area";
@@ -17,8 +17,8 @@ public interface AreaRepository  extends CrudRepository<Area, Long>{
 	@Query(FIND_BY_CODIGO_NOMBRE)
 	public List<Area> findByCodigoOrArea(
 			@Param("codigo") String codigo,
-			@Param("area") String area);
-*/
+			@Param("area") String area);*/
+
 
 	
 

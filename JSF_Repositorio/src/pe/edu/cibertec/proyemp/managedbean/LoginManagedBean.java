@@ -22,8 +22,6 @@ public class LoginManagedBean {
 	@SuppressWarnings("unused")
 	private String email,password;
 
-
-	
 	private List<Login> logins = new ArrayList<Login>();
 	
 	private Login selecLogin = new Login();

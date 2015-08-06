@@ -1,10 +1,15 @@
 package pe.edu.cibertec.proyemp.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -27,6 +32,13 @@ public class Suministro {
 	@Column(name="prioridad", nullable=false, length=200)
 	private String prioridad;
 	
+	
+	//bi-directional many-to-one association to SuministroAtributo
+	@OneToMany(mappedBy="suministro",
+			cascade = CascadeType.PERSIST)
+	private List<Suministro_Atributo> suministros_Atributos = new ArrayList<Suministro_Atributo>();
+	
+
 	public Suministro() {
 		super();
 	}
@@ -75,6 +87,15 @@ public class Suministro {
 	public String toString() {
 		return "Suministro [id=" + id + ", id_rol=" + id_rol + ", nombre="
 				+ nombre + ", prioridad=" + prioridad + "]";
+	}
+
+	public List<Suministro_Atributo> getSuministros_Atributos() {
+		return suministros_Atributos;
+	}
+
+	public void setSuministros_Atributos(
+			List<Suministro_Atributo> suministros_Atributos) {
+		this.suministros_Atributos = suministros_Atributos;
 	}
 	
 	

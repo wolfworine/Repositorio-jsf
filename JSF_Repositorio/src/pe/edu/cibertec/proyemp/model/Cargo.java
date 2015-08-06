@@ -1,10 +1,15 @@
 package pe.edu.cibertec.proyemp.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -23,22 +28,29 @@ public class Cargo {
 	@Column(name="nombre", nullable=false, length=200)
 	private String nombre;
 	
+	@OneToMany(mappedBy="cargo",
+	cascade = CascadeType.PERSIST)
+	List<Rol> roles = new ArrayList<Rol>();
+	
 	public Cargo() {
 		super();
 	}
 
-	public Cargo(long id, String codigo, String nombre) {
+
+	
+	public Cargo(Long id, String codigo, String nombre) {
 		super();
 		this.id = id;
 		this.codigo = codigo;
 		this.nombre = nombre;
 	}
 
-	public long getId() {
+
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -58,12 +70,24 @@ public class Cargo {
 		this.nombre = nombre;
 	}
 
+	public List<Rol> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Rol> roles) {
+		this.roles = roles;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return "Cargo [id=" + id + ", codigo=" + codigo + ", nombre=" + nombre
 				+ "]";
 	}
 
+
+	
 
 
 }

@@ -10,7 +10,9 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import pe.edu.cibertec.proyemp.model.Area;
+import pe.edu.cibertec.proyemp.model.Rol;
 import pe.edu.cibertec.proyemp.service.AreaService;
+import pe.edu.cibertec.proyemp.service.RolService;
 
 import com.google.common.collect.Lists;
 
@@ -20,6 +22,8 @@ public class AreaManagedBean{
 	
 	private List<Area> areas = new ArrayList<Area>();
 	
+	private List<Rol> roles = new ArrayList<Rol>();
+	
 	private List<Area> filteredAreas = new ArrayList<Area>();
 	
 	private Area selecArea = new Area();
@@ -28,13 +32,17 @@ public class AreaManagedBean{
 	
 	private Area area = new Area();
 	
+	private Rol rol = new Rol();
+	
 	@ManagedProperty(value = "#{areaService}")
 	private AreaService areaService;
 
+	@ManagedProperty(value = "#{rolService}")
+	private RolService rolService;
 	
 	@PostConstruct
 	public void init(){
-		areas =  Lists.newArrayList( areaService.getAreaRepository().findAll());
+		roles =  Lists.newArrayList( rolService.getRolRepository().findAll());
 	}
 	
 	
@@ -72,7 +80,7 @@ public class AreaManagedBean{
 		areaService.getAreaRepository().save(selecArea);
 		FacesContext context = FacesContext.getCurrentInstance();
 		context.addMessage(null, new FacesMessage(
-				"Registro " + area.getArea() + " Actualizado"
+				"Registro " + area.getArea()  + " Actualizado"
 				));
 		return "/paginas/area/mantenimiento.xhtml?faces-redirect=true";
 	}
@@ -137,6 +145,36 @@ public class AreaManagedBean{
 
 	public void setArea(Area area) {
 		this.area = area;
+	}
+
+
+	public Rol getRol() {
+		return rol;
+	}
+
+
+	public void setRol(Rol rol) {
+		this.rol = rol;
+	}
+
+
+	public RolService getRolService() {
+		return rolService;
+	}
+
+
+	public void setRolService(RolService rolService) {
+		this.rolService = rolService;
+	}
+
+
+	public List<Rol> getRoles() {
+		return roles;
+	}
+
+
+	public void setRoles(List<Rol> roles) {
+		this.roles = roles;
 	}
 
 	

@@ -54,17 +54,17 @@
 						<span class="label label-primary">#{r.tipo}</span>
 						</p:column>
 							
-						<p:column filterBy="#{r.ubicacion}" headerText="Ubicacion" styleClass="text-center" width="100">
-						<span class="label label-primary">#{r.ubicacion}</span>
+						<p:column filterBy="#{r.ubicacion.codigo}" headerText="Ubicacion" styleClass="text-center" width="100">
+						<span class="label label-primary">#{r.ubicacion.codigo}</span>
 						</p:column>
 						
 					
-						<p:column filterBy="#{r.area}" headerText="Area" width="200">
-						<span class="label label-primary">#{r.area}</span>
+						<p:column filterBy="#{r.area.area}" headerText="Area" width="200">
+						<span class="label label-primary">#{r.area.area}</span>
 						</p:column>
 						
-						<p:column filterBy="#{r.cargo}" headerText="Cargo" width="200">
-						<span class="label label-primary">#{r.area}</span>
+						<p:column filterBy="#{r.cargo.nombre}" headerText="Cargo" width="200">
+						<span class="label label-primary">#{r.cargo.nombre}</span>
 						</p:column>
 						
 						<p:column filterBy="#{r.ambito}" headerText="Ambito" width="100">

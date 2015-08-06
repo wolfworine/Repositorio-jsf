@@ -1,10 +1,15 @@
 package pe.edu.cibertec.proyemp.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -23,28 +28,21 @@ public class Area {
 	@Column(name="area", nullable=false, length=200)
 	private String area;
 
+	@OneToMany(mappedBy="area",
+	cascade = CascadeType.PERSIST)
+	List<Rol> roles = new ArrayList<Rol>();
+	
 	public Area() {
 		super();
 	}
-	
-
-	public Area(Long id, String codigo, String area) {
-		super();
-		this.id = id;
-		this.codigo = codigo;
-		this.area = area;
-	}
-
 
 	public Long getId() {
 		return id;
 	}
 
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
 
 	public String getCodigo() {
 		return codigo;
@@ -57,15 +55,20 @@ public class Area {
 	public String getArea() {
 		return area;
 	}
+
 	public void setArea(String area) {
 		this.area = area;
 	}
 
-
-	@Override
-	public String toString() {
-		return "Area [id=" + id + ", codigo=" + codigo + ", area=" + area + "]";
+	public List<Rol> getRoles() {
+		return roles;
 	}
 
+	public void setRoles(List<Rol> roles) {
+		this.roles = roles;
+	}
+
+
+	
 	
 }

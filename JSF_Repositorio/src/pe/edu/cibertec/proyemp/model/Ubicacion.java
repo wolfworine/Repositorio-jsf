@@ -1,10 +1,15 @@
 package pe.edu.cibertec.proyemp.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -22,6 +27,11 @@ public class Ubicacion {
 	@Column(name="ubicacion", nullable=false, length=200)
 	private String ubicacion;
 
+	@OneToMany(mappedBy="ubicacion",
+	cascade = CascadeType.PERSIST)
+	List<Rol> roles = new ArrayList<Rol>();
+	
+	
 	public Ubicacion() {
 		super();
 	}
@@ -36,6 +46,14 @@ public class Ubicacion {
 
 	public Long getId() {
 		return id;
+	}
+
+	public List<Rol> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Rol> roles) {
+		this.roles = roles;
 	}
 
 	public void setId(Long id) {

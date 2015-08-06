@@ -40,16 +40,14 @@
                             <h2><strong>Ubicaciones</strong> </h2>
                         </div>
              
-					<h:form>
+					<h:form id="form">
+					   <p:growl id="msgs" showDetail="true"/>
              		  <div class="table-responsive">
 					   <p:dataTable  styleClass="table table-vcenter table-condensed table-bordered" value="#{ubicacionManagedBean.ubicaciones}" var="u" rows="20"
 						paginator="true"  selection="#{ubicacionManagedBean.selecUbicacion}" 
-						selectionMode="single" rowKey="#{u.id}" filterValue="#{ubicacionManagedBean.filteredUbicaciones}" >
+						selectionMode="single" rowKey="#{u.codigo}"  >
 					
-						<p:column  filterBy="#{u.id}" headerText="Id" styleClass="text-center">
-							
-							#{u.id}
-						</p:column>
+
 					
 						<p:column filterBy="#{u.codigo}" headerText="Codigo" styleClass="text-center">
 						<span class="label label-primary">#{u.codigo}</span>
@@ -60,9 +58,32 @@
 						</p:column>
 						
 			
-						
+	
+
 					</p:dataTable>
 					</div>
+					
+					<h3>Export Page Data Only</h3>
+                       
+                       
+                       
+                        
+				 				 <div class="form-group form-actions">
+                                        <div class="col-md-8 col-md-offset-4">
+                                        
+                                          <div class="col-xs-4">
+                                         <p:commandButton action="#{ubicacionManagedBean.nuevo}" ajax="false" styleClass="btn btn-sm btn-primary" icon="fa fa-ok" value="Nuevo"></p:commandButton> 
+                                         </div>
+                                         
+                                          <div class="col-xs-4">
+                                         <p:commandButton action="#{ubicacionManagedBean.editar}" ajax="false" styleClass="btn btn-sm btn-warning" icon="fa fa-repeat" value="Modificar"></p:commandButton>
+                                      	 </div>
+                                        </div>
+                                    </div>
+				  
+
+         
+
 					</h:form>
                     </div>
                     <!-- END Datatables Content -->

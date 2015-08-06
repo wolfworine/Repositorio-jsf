@@ -1,10 +1,17 @@
 package pe.edu.cibertec.proyemp.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -38,36 +45,28 @@ public class Rol {
 	@Column(name="propietario_persona", nullable=false, length=200)
 	private String propietario_persona;
 	
-	@Column(name="ubicacion", nullable=false, length=200)
-	private String ubicacion;
+	//bi-directional many-to-one association to Rol
+	@ManyToOne
+	@JoinColumn(name="ubicacion" , referencedColumnName="codigo")
+	private Ubicacion ubicacion= new Ubicacion();
 	
-	@Column(name="area", nullable=false, length=200)
-	private String area;
+	//bi-directional many-to-one association to Rol
+	@ManyToOne
+	@JoinColumn(name="area" , referencedColumnName="area")
+	private Area area= new Area();
 	
-	@Column(name="cargo", nullable=false, length=200)
-	private String cargo;
-
+	//bi-directional many-to-one association to Rol
+	@ManyToOne
+	@JoinColumn(name="cargo" , referencedColumnName="nombre")
+	private Cargo cargo= new Cargo();
+	
+	//bi-directional many-to-one association to SuministroAtributo
+	@OneToMany(mappedBy="rol",
+			cascade = CascadeType.PERSIST)
+	private List<Suministro_Atributo> suministros_Atributos = new ArrayList<Suministro_Atributo>();
 	
 	public Rol() {
 		super();
-	}
-
-	public Rol(Long id, String nombre, String descripcion, String tipo,
-			String regla_negocio, String ambito, String propietario_rol,
-			String propietario_persona, String ubicacion, String area,
-			String cargo) {
-		super();
-		this.id = id;
-		this.nombre = nombre;
-		this.descripcion = descripcion;
-		this.tipo = tipo;
-		this.regla_negocio = regla_negocio;
-		this.ambito = ambito;
-		this.propietario_rol = propietario_rol;
-		this.propietario_persona = propietario_persona;
-		this.ubicacion = ubicacion;
-		this.area = area;
-		this.cargo = cargo;
 	}
 
 	public Long getId() {
@@ -134,40 +133,35 @@ public class Rol {
 		this.propietario_persona = propietario_persona;
 	}
 
-	public String getUbicacion() {
+	public Ubicacion getUbicacion() {
 		return ubicacion;
 	}
 
-	public void setUbicacion(String ubicacion) {
+	public void setUbicacion(Ubicacion ubicacion) {
 		this.ubicacion = ubicacion;
 	}
 
-	public String getArea() {
+	public Area getArea() {
 		return area;
 	}
 
-	public void setArea(String area) {
+	public void setArea(Area area) {
 		this.area = area;
 	}
 
-	public String getCargo() {
+	public Cargo getCargo() {
 		return cargo;
 	}
 
-	public void setCargo(String cargo) {
+	public void setCargo(Cargo cargo) {
 		this.cargo = cargo;
 	}
 
-	@Override
-	public String toString() {
-		return "Rol [id=" + id + ", nombre=" + nombre + ", descripcion="
-				+ descripcion + ", tipo=" + tipo + ", regla_negocio="
-				+ regla_negocio + ", ambito=" + ambito + ", propietario_rol="
-				+ propietario_rol + ", propietario_persona="
-				+ propietario_persona + ", ubicacion=" + ubicacion + ", area="
-				+ area + ", cargo=" + cargo + "]";
-	}
+
 	
+
+
+
 	
 	
 }
