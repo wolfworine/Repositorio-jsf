@@ -30,7 +30,7 @@
                     </div>
                     <ul class="breadcrumb breadcrumb-top">
                         <li>Suministro Atributo</li>
-                        <li><a href="">Mantenimiento</a></li>
+                        <li><a href="">Mantenimiento Grupos</a></li>
                     </ul>
                     <!-- END Datatables Header -->
 
@@ -39,10 +39,10 @@
                         <div class="block-title">
                            
                     <ul class="breadcrumb breadcrumb-top">
-                        <li><h2><strong><a href="#{request.contextPath}/paginas/rol/roles.xhtml">Roles</a></strong> </h2></li>
-                        <li><h2><strong><a href="#{request.contextPath}/paginas/rol/grupos.xhtml"> Grupos</a></strong> </h2></li>
-                        <li><h2><strong><a href="#{request.contextPath}/paginas/rol/inbox.xhtml"> Inbox</a></strong> </h2></li>
-                        <li><h2><strong><a href="#{request.contextPath}/paginas/rol/defaultinbox.xhtml">DefaultInbox</a></strong></h2> </li>
+                        <li><h2><strong><a href="#{request.contextPath}/paginas/atributo/roles.xhtml">Roles</a></strong> </h2></li>
+                        <li><h2><strong><a href="#{request.contextPath}/paginas/atributo/grupos.xhtml"> Grupos</a></strong> </h2></li>
+                        <li><h2><strong><a href="#{request.contextPath}/paginas/atributo/inbox.xhtml"> Inbox</a></strong> </h2></li>
+                        <li><h2><strong><a href="#{request.contextPath}/paginas/atributo/defaultinbox.xhtml">DefaultInbox</a></strong></h2> </li>
                     </ul>
                         </div>
              
@@ -53,7 +53,7 @@
 	
    					
              		  <div class="table-responsive">
-					   <p:dataTable  styleClass="table table-vcenter table-condensed table-bordered" value="#{rolManagedBean.aroles}" var="a" rows="20"
+					   <p:dataTable  styleClass="table table-vcenter table-condensed table-bordered" value="#{rolManagedBean.agrupos}" var="a" rows="20"
 						paginator="true"  selection="#{rolManagedBean.selectAtributo}" 
 						selectionMode="single" rowKey="#{a.id}" >
 					

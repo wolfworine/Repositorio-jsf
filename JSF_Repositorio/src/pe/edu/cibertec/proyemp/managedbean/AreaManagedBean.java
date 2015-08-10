@@ -72,7 +72,7 @@ public class AreaManagedBean{
 		context.addMessage(null, new FacesMessage(
 				"Registro " + area.getArea() + " ingresado"
 				));
-		return null;
+		return "/paginas/area/mantenimiento.xhtml?faces-redirect=true";
 	}
 	
 	

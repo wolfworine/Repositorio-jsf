@@ -29,8 +29,8 @@
                         </div>
                     </div>
                     <ul class="breadcrumb breadcrumb-top">
-                        <li>Suministro Atributo</li>
-                        <li><a href="">Mantenimiento</a></li>
+                        <li>Suministro Atributo </li>
+                        <li><a href="">Mantenimiento Default Inbox</a></li>
                     </ul>
                     <!-- END Datatables Header -->
 
@@ -53,7 +53,7 @@
 	
    					
              		  <div class="table-responsive">
-					   <p:dataTable  styleClass="table table-vcenter table-condensed table-bordered" value="#{rolManagedBean.aroles}" var="a" rows="20"
+					   <p:dataTable  styleClass="table table-vcenter table-condensed table-bordered" value="#{rolManagedBean.adefaultinbox}" var="a" rows="20"
 						paginator="true"  selection="#{rolManagedBean.selectAtributo}" 
 						selectionMode="single" rowKey="#{a.id}" >
 					
@@ -63,11 +63,11 @@
 						<span class="label label-primary">#{a.parametro}</span>
 						</p:column>
 						
-						<p:column  headerText="Atributo_codigo" styleClass="text-center" width="150">		
+						<p:column  headerText="Atributo_codigo" styleClass="text-center" width="300">		
 							#{a.atributo_codigo}
 						</p:column>
 						
-						<p:column  headerText="atributo_nombre" styleClass="text-center">
+						<p:column  headerText="atributo_nombre" styleClass="text-center" >
 						<span class="label label-primary">#{a.atributo_nombre}</span>
 						</p:column>
 						

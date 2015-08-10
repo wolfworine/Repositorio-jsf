@@ -32,6 +32,8 @@ public class AtributoManagedBean {
 	}
 
 	public List<Atributo> getAtributos() {
+		atributos  = Lists.newArrayList(
+				atributoService.getAtributoRepository().findAll());
 		return atributos;
 	}
 

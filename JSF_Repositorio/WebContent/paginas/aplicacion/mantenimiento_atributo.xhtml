@@ -39,10 +39,10 @@
                         <div class="block-title">
                            
                     <ul class="breadcrumb breadcrumb-top">
-                        <li><h2><strong><a href="#{request.contextPath}/paginas/atributo/roles.xhtml">Roles</a></strong> </h2></li>
-                        <li><h2><strong><a href="#{request.contextPath}/paginas/atributo/grupos.xhtml"> Grupos</a></strong> </h2></li>
-                        <li><h2><strong><a href="#{request.contextPath}/paginas/atributo/inbox.xhtml"> Inbox</a></strong> </h2></li>
-                        <li><h2><strong><a href="#{request.contextPath}/paginas/atributo/defaultinbox.xhtml">DefaultInbox</a></strong></h2> </li>
+                        <li><h2><strong><a href="#{request.contextPath}/paginas/aplicacion/roles.xhtml">Roles</a></strong> </h2></li>
+                        <li><h2><strong><a href="#{request.contextPath}/paginas/aplicacion/grupos.xhtml"> Grupos</a></strong> </h2></li>
+                        <li><h2><strong><a href="#{request.contextPath}/paginas/aplicacion/inbox.xhtml"> Inbox</a></strong> </h2></li>
+                        <li><h2><strong><a href="#{request.contextPath}/paginas/aplicacion/defaultinbox.xhtml">DefaultInbox</a></strong></h2> </li>
                     </ul>
                         </div>
              
@@ -53,8 +53,8 @@
 	
    					
              		  <div class="table-responsive">
-					   <p:dataTable  styleClass="table table-vcenter table-condensed table-bordered" value="#{rolManagedBean.aroles}" var="a" rows="20"
-						paginator="true"  selection="#{rolManagedBean.selectAtributo}" 
+					   <p:dataTable  styleClass="table table-vcenter table-condensed table-bordered" value="#{aplicacionManagedBean.aroles}" var="a" rows="20"
+						paginator="true"  selection="#{aplicacionManagedBean.selectAtributo}" 
 						selectionMode="single" rowKey="#{a.id}" >
 					
 	

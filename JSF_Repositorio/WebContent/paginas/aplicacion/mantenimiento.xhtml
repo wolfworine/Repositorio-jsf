@@ -20,6 +20,7 @@
 	
 	
 <ui:define name="content"> 
+ <p:messages id="msgs" />
  	<!-- Datatables Header -->
                     <div class="content-header">
                         <div class="header-section">
@@ -29,54 +30,35 @@
                         </div>
                     </div>
                     <ul class="breadcrumb breadcrumb-top">
-                        <li>Suministro Atributo</li>
-                        <li><a href="">Mantenimiento Inbox</a></li>
+                        <li>Aplicacion</li>
+                        <li><a href="">Mantenimiento</a></li>
                     </ul>
                     <!-- END Datatables Header -->
 
                     <!-- Datatables Content -->
                     <div class="block full">
                         <div class="block-title">
-                           
-                    <ul class="breadcrumb breadcrumb-top">
-                        <li><h2><strong><a href="#{request.contextPath}/paginas/rol/roles.xhtml">Roles</a></strong> </h2></li>
-                        <li><h2><strong><a href="#{request.contextPath}/paginas/rol/grupos.xhtml"> Grupos</a></strong> </h2></li>
-                        <li><h2><strong><a href="#{request.contextPath}/paginas/rol/inbox.xhtml"> Inbox</a></strong> </h2></li>
-                        <li><h2><strong><a href="#{request.contextPath}/paginas/rol/defaultinbox.xhtml">DefaultInbox</a></strong></h2> </li>
-                    </ul>
+                            <h2><strong>Aplicaciones</strong> </h2>
                         </div>
              
-
-             
-             
-   					<h:form>
-	
-   					
+               		<h:form>
              		  <div class="table-responsive">
-					   <p:dataTable  styleClass="table table-vcenter table-condensed table-bordered" value="#{rolManagedBean.ainbox}" var="a" rows="20"
-						paginator="true"  selection="#{rolManagedBean.selectAtributo}" 
-						selectionMode="single" rowKey="#{a.id}" >
+					   <p:dataTable  styleClass="table table-vcenter table-condensed table-bordered" value="#{aplicacionManagedBean.aplicaciones}" var="ap" rows="20"
+						paginator="true"  selection="#{aplicacionManagedBean.selecAplicacion}" 
+						selectionMode="single" rowKey="#{ap.codigo}" >
 					
-	
-						
-						<p:column headerText="parametro" styleClass="text-center" width="120">
-						<span class="label label-primary">#{a.parametro}</span>
+						<p:column  filterBy="#{ap.codigo}" headerText="Codigo" styleClass="text-center">
+							
+							#{ap.codigo}
 						</p:column>
-						
-						<p:column  headerText="Atributo_codigo" styleClass="text-center" width="150">		
-							#{a.atributo_codigo}
-						</p:column>
-						
-						<p:column  headerText="atributo_nombre" styleClass="text-center">
-						<span class="label label-primary">#{a.atributo_nombre}</span>
-						</p:column>
-						
-						<p:column  headerText="Aplicaccion" styleClass="text-center" width="120">		
-							#{a.aplicacion}
+					
+						<p:column filterBy="#{ap.aplicacion}" headerText="Aplicacion" >
+						<span class="label label-primary">#{ap.aplicacion}</span>
 						</p:column>
 						
 					</p:dataTable>
 					</div>
+					
 					<h3>Export Page Data Only</h3>
                        
                        
@@ -85,9 +67,17 @@
 				 				 <div class="form-group form-actions">
                                         <div class="col-md-12 col-md-offset-2 center">
                                         
-
+                                          <div class="col-xs-2">
+                                         <p:commandButton action="#{aplicacionManagedBean.nuevo}" ajax="false" styleClass="btn btn-sm btn-primary" icon="fa fa-ok" value="Nuevo"></p:commandButton> 
+                                         </div>
+                                         
+                                          <div class="col-xs-2">
+                                         <p:commandButton action="#{aplicacionManagedBean.editar}" ajax="false" styleClass="btn btn-sm btn-warning" icon="fa fa-repeat" value="Modificar"></p:commandButton>
+                                      	 </div>
                                       	 
-
+                                      	<div class="col-xs-2">
+                                         <p:commandButton action="#{aplicacionManagedBean.ver_rol}" ajax="false" styleClass="btn btn-sm btn-warning" icon="fa fa-repeat" value="VerRol"></p:commandButton>
+                                      	 </div>
                                         </div>
                                     </div>
 				  

@@ -21,5 +21,15 @@ public interface AtributoRepository extends CrudRepository<Atributo, Long>{
     public List<Atributo> findParametro(@Param("id_rol") Long id_rol,
     		@Param("id_suministro") Long id_suministro,
     		@Param("parametro") String parametro);
+    
+	public final static String FIND_BY_PARAMETRO2= "SELECT s " + 
+            "FROM Atributo s " +
+            "WHERE s.id_rol = :id_rol "+
+            "and s.id_suministro = :id_suministro "+
+            "and s.parametro = :parametro "+
+            "and s.aplicacion= :aplicacion";
+    @Query(FIND_BY_PARAMETRO2)
+	public List<Atributo> findParametro2(@Param("id_rol") Long id_rol,@Param("id_suministro") Long id_suministro,@Param("parametro") 
+			String parametro,@Param("aplicacion")  String aplicacion);
 
 }

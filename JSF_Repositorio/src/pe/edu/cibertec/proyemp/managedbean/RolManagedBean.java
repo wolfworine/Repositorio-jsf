@@ -238,20 +238,20 @@ public class RolManagedBean {
 			agrupos=  atributoService.getAtributoRepository().findParametro(id_rol,id_suministro,grupos);
 		ainbox=  atributoService.getAtributoRepository().findParametro(id_rol,id_suministro,inbox);
 			adefaultinbox=  atributoService.getAtributoRepository().findParametro(id_rol,id_suministro,defualtinbox);
-		return "/paginas/rol/mantenimiento_suministro_atributo.xhtml?faces-redirect=true";
+		return "/paginas/atributo/mantenimiento.xhtml?faces-redirect=true";
 	}
 
 	public String  nuevo_suministro_atributo() {
-		return "/paginas/rol/editar_suministro_atributo.xhtml?faces-redirect=true";
+		return "/paginas/atributo/editar.xhtml?faces-redirect=true";
 	}
 	
 	public String  editar_suministro_atributo() {
 		
-		return "/paginas/rol/modificar_suministro_atributo.xhtml?faces-redirect=true";
+		return "/paginas/atributo/modifica.xhtml?faces-redirect=true";
 	}
 	
 	public String  volver_suministro_atributo() {
-		return "/paginas/rol/mantenimiento_suministro_atributo.xhtml?faces-redirect=true";
+		return "/paginas/atributo/mantenimiento.xhtml?faces-redirect=true";
 	}
 	
 	public String  registrar_suministro_atributo() {
@@ -262,7 +262,7 @@ public class RolManagedBean {
 				"Registro " + suministro.getNombre() + " ingresado"
 				));
 		suministro = new Suministro();
-		return "/paginas/rol/editar_suministro_atributo.xhtml?faces-redirect=true";
+		return "/paginas/rol/editar.xhtml?faces-redirect=true";
 	}
 	
 	
@@ -272,7 +272,7 @@ public class RolManagedBean {
 		context.addMessage(null, new FacesMessage(
 				"Registro " + selecSuministro.getNombre() + " actualizado"
 				));
-		return "/paginas/rol/modificar_suministro_atributo.xhtml?faces-redirect=true";
+		return "/paginas/rol/modificar.xhtml?faces-redirect=true";
 	}
 	
 

@@ -32,7 +32,7 @@ public class Atributo {
 	@Column(name="atributo_nombre", nullable=false, length=200)
 	private String atributo_nombre;
 	
-	@Column(name="aplicaccion", nullable=false, length=200)
+	@Column(name="aplicacion", nullable=false, length=200)
 	private String aplicacion;
 
 	public Atributo() {
