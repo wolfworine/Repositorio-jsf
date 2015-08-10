@@ -1,5 +1,6 @@
 package pe.edu.cibertec.proyemp.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +15,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "ubicacion")
-public class Ubicacion {
+public class Ubicacion  implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -27,10 +33,6 @@ public class Ubicacion {
 	@Column(name="ubicacion", nullable=false, length=200)
 	private String ubicacion;
 
-	@OneToMany(mappedBy="ubicacion",
-	cascade = CascadeType.PERSIST)
-	List<Rol> roles = new ArrayList<Rol>();
-	
 	
 	public Ubicacion() {
 		super();
@@ -48,13 +50,6 @@ public class Ubicacion {
 		return id;
 	}
 
-	public List<Rol> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(List<Rol> roles) {
-		this.roles = roles;
-	}
 
 	public void setId(Long id) {
 		this.id = id;

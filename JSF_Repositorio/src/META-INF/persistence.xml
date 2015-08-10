@@ -11,7 +11,7 @@
 	<class>pe.edu.cibertec.proyemp.model.Rol</class>
 	<class>pe.edu.cibertec.proyemp.model.Ubicacion</class>
 	<class>pe.edu.cibertec.proyemp.model.Suministro</class>
-	<class>pe.edu.cibertec.proyemp.model.Suministro_Atributo</class>
+	<class>pe.edu.cibertec.proyemp.model.Atributo</class>
 	<class>pe.edu.cibertec.proyemp.model.Usuario</class>
 	<class>pe.edu.cibertec.proyemp.model.Login</class>
 	

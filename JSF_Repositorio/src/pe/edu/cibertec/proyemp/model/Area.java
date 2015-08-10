@@ -1,5 +1,6 @@
 package pe.edu.cibertec.proyemp.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +16,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "area")
-public class Area {
+public class Area implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -28,13 +34,18 @@ public class Area {
 	@Column(name="area", nullable=false, length=200)
 	private String area;
 
-	@OneToMany(mappedBy="area",
-	cascade = CascadeType.PERSIST)
-	List<Rol> roles = new ArrayList<Rol>();
-	
 	public Area() {
 		super();
 	}
+	
+
+	public Area(String codigo, String area) {
+		super();
+		this.codigo = codigo;
+		this.area = area;
+	}
+
+
 
 	public Long getId() {
 		return id;
@@ -60,12 +71,10 @@ public class Area {
 		this.area = area;
 	}
 
-	public List<Rol> getRoles() {
-		return roles;
-	}
 
-	public void setRoles(List<Rol> roles) {
-		this.roles = roles;
+	@Override
+	public String toString() {
+		return "Area [codigo=" + codigo + ", area=" + area + "]";
 	}
 
 

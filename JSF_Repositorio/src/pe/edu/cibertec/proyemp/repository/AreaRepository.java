@@ -1,6 +1,8 @@
 package pe.edu.cibertec.proyemp.repository;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import pe.edu.cibertec.proyemp.model.Area;
@@ -9,6 +11,22 @@ import pe.edu.cibertec.proyemp.model.Area;
 @Repository
 public interface AreaRepository  extends CrudRepository<Area, Long>{
 
+	public final static String FIND_BY_CODIGO= "SELECT a " + 
+            "FROM Area a " +
+            "WHERE a.codigo = :codigo ";
+	
+	@Query(FIND_BY_CODIGO)
+	Area findCod(@Param("codigo") String codigo);
+
+	
+	public final static String FIND_BY_CODIGO2= "SELECT a " + 
+            "FROM Area a " +
+            "WHERE a.area = :area ";
+	
+	@Query(FIND_BY_CODIGO2)
+	Area findCod2(@Param("area") String area);
+
+	
 /*	public final static String FIND_BY_CODIGO_NOMBRE= "SELECT a " + 
 	            "FROM Area a " +
 	            "WHERE a.codigo = :codigo "+

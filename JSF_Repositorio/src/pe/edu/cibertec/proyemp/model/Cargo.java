@@ -1,5 +1,6 @@
 package pe.edu.cibertec.proyemp.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,8 +16,13 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "cargo")
-public class Cargo {
+public class Cargo  implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id",nullable=false,unique=true)
@@ -25,22 +31,17 @@ public class Cargo {
 	@Column(name="codigo",nullable=false,length=50)
 	private String codigo;
 	
-	@Column(name="nombre", nullable=false, length=200)
+	@Column(name="nombre", nullable=true, length=200)
 	private String nombre;
-	
-	@OneToMany(mappedBy="cargo",
-	cascade = CascadeType.PERSIST)
-	List<Rol> roles = new ArrayList<Rol>();
 	
 	public Cargo() {
 		super();
 	}
 
 
-	
-	public Cargo(Long id, String codigo, String nombre) {
+	public Cargo(String codigo, String nombre) {
 		super();
-		this.id = id;
+	
 		this.codigo = codigo;
 		this.nombre = nombre;
 	}
@@ -70,21 +71,12 @@ public class Cargo {
 		this.nombre = nombre;
 	}
 
-	public List<Rol> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(List<Rol> roles) {
-		this.roles = roles;
-	}
-
-
-
 	@Override
 	public String toString() {
-		return "Cargo [id=" + id + ", codigo=" + codigo + ", nombre=" + nombre
-				+ "]";
+		return "Cargo [codigo=" + codigo + ", nombre=" + nombre + "]";
 	}
+
+
 
 
 	

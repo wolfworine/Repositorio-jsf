@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <ul class="breadcrumb breadcrumb-top">
-                        <li>Rol</li>
+                        <li>Suministro</li>
                         <li><a href="">Mantenimiento</a></li>
                     </ul>
                     <!-- END Datatables Header -->
@@ -37,38 +37,29 @@
                     <!-- Datatables Content -->
                     <div class="block full">
                         <div class="block-title">
-                            <h2><strong>Roles</strong> </h2>
+                            <h2><strong>Suministros</strong> </h2>
                         </div>
-            		 <h:form>
+             
+   					<h:form>
              		  <div class="table-responsive">
-					   <p:dataTable  styleClass="table table-vcenter table-condensed table-bordered" value="#{rolManagedBean.roles}" var="r" rows="20"
-						paginator="true"  selection="#{rolManagedBean.selecRol}" 
-						selectionMode="single" rowKey="#{r.id}">
+					   <p:dataTable  styleClass="table table-vcenter table-condensed table-bordered" value="#{rolManagedBean.rol_suministros}" var="rs" rows="20"
+						paginator="true"  selection="#{rolManagedBean.selecSuministro}" 
+						selectionMode="single" rowKey="#{rs.id}">
 					
-						<p:column  filterBy="#{r.nombre}" headerText="Nombre" styleClass="text-center" width="300">
-							
-							#{r.nombre}
+						<p:column  headerText="Id" styleClass="text-center">		
+							#{rs.id}
 						</p:column>
 					
-						<p:column filterBy="#{r.tipo}" headerText="Tipo"  width="100">
-						<span class="label label-primary">#{r.tipo}</span>
-						</p:column>
-							
-						<p:column filterBy="#{r.ubicacion}" headerText="Ubicacion" styleClass="text-center" width="100">
-						<span class="label label-primary">#{r.ubicacion}</span>
+						<p:column  headerText="id_rol" styleClass="text-center">
+						<span class="label label-primary">#{rs.id_rol}</span>
 						</p:column>
 						
-					
-						<p:column filterBy="#{r.area}" headerText="Area" width="200">
-						<span class="label label-primary">#{r.area}</span>
+						<p:column headerText="Nombre" width="700">
+						<span class="label label-primary">#{rs.nombre}</span>
 						</p:column>
 						
-						<p:column filterBy="#{r.cargo}" headerText="Cargo" width="200">
-						<span class="label label-primary">#{r.cargo}</span>
-						</p:column>
-						
-						<p:column filterBy="#{r.ambito}" headerText="Ambito" width="100">
-						<span class="label label-primary">#{r.ambito}</span>
+						<p:column headerText="Prioridad" styleClass="text-center">
+						<span class="label label-primary">#{rs.prioridad}</span>
 						</p:column>
 						
 					</p:dataTable>
@@ -77,20 +68,19 @@
                        
                        
                        
-                        
 				 				 <div class="form-group form-actions">
-                                        <div class="col-md-8 col-md-offset-4">
+                                        <div class="col-md-12 col-md-offset-2 center">
                                         
                                           <div class="col-xs-2">
-                                         <p:commandButton action="#{rolManagedBean.nuevo}" ajax="false" styleClass="btn btn-sm btn-primary" icon="fa fa-ok" value="Nuevo"></p:commandButton> 
+                                         <p:commandButton action="#{rolManagedBean.nuevo_suministro}" ajax="false" styleClass="btn btn-sm btn-primary" icon="fa fa-ok" value="Nuevo"></p:commandButton> 
                                          </div>
                                          
                                           <div class="col-xs-2">
-                                         <p:commandButton action="#{rolManagedBean.editar}" ajax="false" styleClass="btn btn-sm btn-warning" icon="fa fa-repeat" value="Modificar"></p:commandButton>
+                                         <p:commandButton action="#{rolManagedBean.editar_suministro}" ajax="false" styleClass="btn btn-sm btn-warning" icon="fa fa-repeat" value="Modificar"></p:commandButton>
                                       	 </div>
                                       	 
-                                      	 <div class="col-xs-2">
-                                         <p:commandButton action="#{rolManagedBean.versuministro}" ajax="false" styleClass="btn btn-sm btn-warning" icon="fa fa-repeat" value="VerSuministro"></p:commandButton>
+                                      	  <div class="col-xs-2">
+                                         <p:commandButton action="#{rolManagedBean.veratributo}" ajax="false" styleClass="btn btn-sm btn-warning" icon="fa fa-repeat" value="VerAtributo"></p:commandButton>
                                       	 </div>
                                         </div>
                                     </div>
