@@ -7,6 +7,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 import pe.edu.cibertec.proyemp.model.Usuario;
 import pe.edu.cibertec.proyemp.service.UsuarioService;
@@ -14,13 +15,11 @@ import pe.edu.cibertec.proyemp.service.UsuarioService;
 import com.google.common.collect.Lists;
 
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class UsuarioManagedBean {
 
 	private List<Usuario> usuarios= new ArrayList<Usuario>();
-	
-	private List<Usuario> filteredUsuarios= new ArrayList<Usuario>();
-	
+
 	private Usuario selecUsuario= new Usuario();
 
 	@ManagedProperty(value = "#{usuarioService}")
@@ -58,13 +57,7 @@ public class UsuarioManagedBean {
 		this.usuarioService = usuarioService;
 	}
 
-	public List<Usuario> getFilteredUsuarios() {
-		return filteredUsuarios;
-	}
 
-	public void setFilteredUsuarios(List<Usuario> filteredUsuarios) {
-		this.filteredUsuarios = filteredUsuarios;
-	}
 	
 	
 	

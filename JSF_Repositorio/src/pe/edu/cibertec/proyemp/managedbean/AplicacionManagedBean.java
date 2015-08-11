@@ -62,6 +62,11 @@ public class AplicacionManagedBean{
 	private Suministro selecSuministro = new Suministro();
 	//Vista de Suministro_Atributo
 	
+	private String rolesa;
+	private String gruposa;
+	private String inboxa;
+	private String defaultinboxa;
+	
 	private List<Atributo> aroles=new ArrayList<Atributo>();
 	
 	private List<Atributo> agrupos=new ArrayList<Atributo>();
@@ -258,10 +263,10 @@ public class AplicacionManagedBean{
 		public String  ver_atributo() {
 
 			
-				String roles="ROLES";
-				String grupos="GRUPOS";
-				String inbox="INBOX";
-				String defualtinbox="DEFAULTINBOX";
+				rolesa="ROLES";
+				gruposa="GRUPOS";
+				inboxa="INBOX";
+				defaultinboxa="DEFAULTINBOX";
 				
 				Long id_rol=selecSuministro.getId_rol();
 				Long id_suministro=selecSuministro.getId();
@@ -269,51 +274,115 @@ public class AplicacionManagedBean{
 				System.out.println("rol "+id_rol );
 				System.out.println("suministro "+ id_suministro);
 				
-				aroles=  atributoService.getAtributoRepository().findParametro2(id_rol,id_suministro,roles,aplicacion);
-				agrupos=  atributoService.getAtributoRepository().findParametro2(id_rol,id_suministro,grupos,aplicacion);
-				ainbox=  atributoService.getAtributoRepository().findParametro2(id_rol,id_suministro,inbox,aplicacion);
-				adefaultinbox=  atributoService.getAtributoRepository().findParametro2(id_rol,id_suministro,defualtinbox,aplicacion);
+				aroles=  atributoService.getAtributoRepository().findParametro2(id_rol,id_suministro,rolesa,aplicacion);
+				agrupos=  atributoService.getAtributoRepository().findParametro2(id_rol,id_suministro,gruposa,aplicacion);
+				ainbox=  atributoService.getAtributoRepository().findParametro2(id_rol,id_suministro,inboxa,aplicacion);
+				adefaultinbox=  atributoService.getAtributoRepository().findParametro2(id_rol,id_suministro,defaultinboxa,aplicacion);
 				
-				System.out.println("Roles"+aroles);
+				
+				System.out.println("aroles"+aroles);
 				System.out.println("agrupos"+agrupos);
 				System.out.println("ainbox"+aroles);
 				System.out.println("adefaultinbox"+adefaultinbox);
+	
+
 				return "/paginas/aplicacion/mantenimiento_atributo.xhtml?faces-redirect=true";
 		}
+		// Atributo Roles
+		public String  nuevo_atributo_rol() {
+			atributo.setId_rol(selecSuministro.getId_rol());
+			atributo.setId_suministro(selecSuministro.getId());
+			atributo.setAplicacion(selecAplicacion.getAplicacion());
+			atributo.setParametro(rolesa);
+			return "/paginas/aplicacion/editar_atributo.xhtml?faces-redirect=true";
+		}
+		
+		public String  editar_atributo_rol() {
 
-		public String  nuevo_suministro_atributo() {
+			return "/paginas/aplicacion/modificar_atributo.xhtml?faces-redirect=true";
+		}
+		
+		// Atributo Grupos
+		public String  nuevo_atributo_grupo() {
+			atributo.setId_rol(selecSuministro.getId_rol());
+			atributo.setId_suministro(selecSuministro.getId());
+			atributo.setAplicacion(selecAplicacion.getAplicacion());
+			atributo.setParametro(gruposa);
 			return "/paginas/aplicacion/editar_atributo.xhtml?faces-redirect=true";
 		}
 		
-		public String  editar_suministro_atributo() {
+		public String  editar_atributo_grupo() {
+
 			
 			return "/paginas/aplicacion/modificar_atributo.xhtml?faces-redirect=true";
 		}
 		
-		public String  volver_suministro_atributo() {
-			return "/paginas/aplicacion/mantenimiento.xhtml?faces-redirect=true";
-		}
-		
-		public String  registrar_suministro_atributo() {
-			
-			suministroService.getSuministroRepository().save(suministro);
-			FacesContext context = FacesContext.getCurrentInstance();
-			context.addMessage(null, new FacesMessage(
-					"Registro " + suministro.getNombre() + " ingresado"
-					));
-			suministro = new Suministro();
+		// Atributo Inbox 
+		public String  nuevo_atributo_inbox() {
+			atributo.setId_rol(selecSuministro.getId_rol());
+			atributo.setId_suministro(selecSuministro.getId());
+			atributo.setAplicacion(selecAplicacion.getAplicacion());
+			atributo.setParametro(inboxa);
 			return "/paginas/aplicacion/editar_atributo.xhtml?faces-redirect=true";
 		}
 		
-		
-		public String  modificar_suministro_atributo() {
-			suministroService.getSuministroRepository().save(selecSuministro);
-			FacesContext context = FacesContext.getCurrentInstance();
-			context.addMessage(null, new FacesMessage(
-					"Registro " + selecSuministro.getNombre() + " actualizado"
-					));
+		public String  editar_atributo_inbox() {
+
+			
 			return "/paginas/aplicacion/modificar_atributo.xhtml?faces-redirect=true";
 		}
+		
+		// Atributo Default Inbox
+		public String  nuevo_atributo_defaultinboxa() {
+			atributo.setId_rol(selecSuministro.getId_rol());
+			atributo.setId_suministro(selecSuministro.getId());
+			atributo.setAplicacion(selecAplicacion.getAplicacion());
+			atributo.setParametro(defaultinboxa);
+			return "/paginas/aplicacion/editar_atributo.xhtml?faces-redirect=true";
+		}
+		
+		public String  editar_atributo_defaultinboxa() {
+
+			
+			return "/paginas/aplicacion/modificar_atributo.xhtml?faces-redirect=true";
+		}
+		
+		
+		public String  volver_atributo() {
+			return "/paginas/aplicacion/mantenimiento_atributo.xhtml?faces-redirect=true";
+		}
+		
+		public String  registrar_atributo() {
+			
+			atributoService.getAtributoRepository().save(atributo);
+			Long id_rol=selecSuministro.getId_rol();
+			Long id_suministro=selecSuministro.getId();
+			String aplicacion=selecAplicacion.getAplicacion();
+			aroles=  atributoService.getAtributoRepository().findParametro2(id_rol,id_suministro,rolesa,aplicacion);
+			agrupos=  atributoService.getAtributoRepository().findParametro2(id_rol,id_suministro,gruposa,aplicacion);
+			ainbox=  atributoService.getAtributoRepository().findParametro2(id_rol,id_suministro,inboxa,aplicacion);
+			adefaultinbox=  atributoService.getAtributoRepository().findParametro2(id_rol,id_suministro,defaultinboxa,aplicacion);
+			atributo =new Atributo();
+			return "/paginas/aplicacion/mantenimiento_atributo.xhtml?faces-redirect=true";
+		}
+		
+		
+		public String  modificar_atributo() {
+			atributoService.getAtributoRepository().save(selectAtributo);
+			FacesContext context = FacesContext.getCurrentInstance();
+			context.addMessage(null, new FacesMessage(
+					"Registro " + selectAtributo.getId() + " actualizado"
+					));
+			Long id_rol=selecSuministro.getId_rol();
+			Long id_suministro=selecSuministro.getId();
+			String aplicacion=selecAplicacion.getAplicacion();
+			aroles=  atributoService.getAtributoRepository().findParametro2(id_rol,id_suministro,rolesa,aplicacion);
+			agrupos=  atributoService.getAtributoRepository().findParametro2(id_rol,id_suministro,gruposa,aplicacion);
+			ainbox=  atributoService.getAtributoRepository().findParametro2(id_rol,id_suministro,inboxa,aplicacion);
+			adefaultinbox=  atributoService.getAtributoRepository().findParametro2(id_rol,id_suministro,defaultinboxa,aplicacion);
+			return "/paginas/aplicacion/mantenimiento_atributo.xhtml?faces-redirect=true";
+		}
+		
 		public Rol getRol() {
 			return rol;
 		}
@@ -566,6 +635,42 @@ public class AplicacionManagedBean{
 			this.aplicaciones = aplicaciones;
 		}
 
+		public String getRolesa() {
+			return rolesa;
+		}
+
+		public void setRolesa(String rolesa) {
+			this.rolesa = rolesa;
+		}
+
+		public String getGruposa() {
+			return gruposa;
+		}
+
+		public void setGruposa(String gruposa) {
+			this.gruposa = gruposa;
+		}
+
+		public String getInboxa() {
+			return inboxa;
+		}
+
+		public void setInboxa(String inboxa) {
+			this.inboxa = inboxa;
+		}
+
+		public String getDefaultinboxa() {
+			return defaultinboxa;
+		}
+
+		public void setDefaultinboxa(String defaultinboxa) {
+			this.defaultinboxa = defaultinboxa;
+		}
+
+
+
+
+		
 
 		
 	}

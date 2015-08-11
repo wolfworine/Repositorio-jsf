@@ -32,7 +32,7 @@
                         </div>
                     </div>
                     <ul class="breadcrumb breadcrumb-top">
-                        <li>Ubicacion</li>
+                        <li><a href="#{request.contextPath}/paginas/ubicacion/mantenimiento.xhtml">Ubicacion</a></li>
                         <li><a href="">Nuevo</a></li>
                     </ul>
                     <!-- END Datatables Header -->
@@ -90,13 +90,13 @@
                                     
                                     
 				 				 <div class="form-group form-actions">
-                                        <div class="col-md-8 col-md-offset-4">
+                                        <div class="col-md-8-center col-md-offset-4">
                                         
-                                          <div class="col-xs-4">
+                                          <div class="col-xs-6">
                                          <p:commandButton action="#{ubicacionManagedBean.registrar}" ajax="false" styleClass="btn btn-sm btn-primary" icon="fa fa-ok" value="Registrar"></p:commandButton> 
                                          </div>
                                          
-                                          <div class="col-xs-4">
+                                          <div class="col-xs-6">
                                          <p:commandButton action="#{ubicacionManagedBean.volver}" ajax="false" styleClass="btn btn-sm btn-warning" icon="fa fa-repeat" value="Volver"></p:commandButton>
                                       	 </div>
                                         </div>

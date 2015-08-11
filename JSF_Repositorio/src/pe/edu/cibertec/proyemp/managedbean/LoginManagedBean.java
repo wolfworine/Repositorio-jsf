@@ -8,6 +8,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import pe.edu.cibertec.proyemp.model.Login;
@@ -16,7 +17,7 @@ import pe.edu.cibertec.proyemp.service.LoginService;
 import com.google.common.collect.Lists;
 
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class LoginManagedBean {
 	
 	@SuppressWarnings("unused")
@@ -36,8 +37,6 @@ public class LoginManagedBean {
 
 	@PostConstruct
 	public void init(){
-		
-		FacesContext context = FacesContext.getCurrentInstance();
 		logins = Lists.newArrayList(
 				loginService.getLoginRepository().findAll());
 	}
@@ -48,8 +47,6 @@ public class LoginManagedBean {
 		return logins;
 	}
 
-	
-	
 	
 	public void setLogins(List<Login> logins) {
 		this.logins = logins;
