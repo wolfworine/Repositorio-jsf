@@ -18,13 +18,10 @@ public class Usuario {
 	@Column(name="id",nullable=false,unique=true)
 	private Long id;
 	
-	@Column(name="usuario",nullable=false)
-	private String usuario;
-	
 	@Column(name="firstname",nullable=false)
 	private String firstname;
 	
-	@Column(name="lasname",nullable=false)
+	@Column(name="lastname",nullable=false)
 	private String lastname;
 	
 	@Column(name="email",nullable=false)
@@ -37,11 +34,10 @@ public class Usuario {
 		super();
 	}
 
-	public Usuario(Long id, String usuario, String firstname, String lastname,
-			String email, String password) {
+	public Usuario(Long id, String firstname, String lastname, String email,
+			String password) {
 		super();
 		this.id = id;
-		this.usuario = usuario;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.email = email;
@@ -54,14 +50,6 @@ public class Usuario {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
 	}
 
 	public String getFirstname() {
@@ -98,14 +86,14 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", usuario=" + usuario + ", firstname="
-				+ firstname + ", lastname=" + lastname + ", email=" + email
-				+ ", password=" + password + "]";
+		return "Usuario [id=" + id + ", firstname=" + firstname + ", lastname="
+				+ lastname + ", email=" + email + ", password=" + password
+				+ "]";
 	}
-	
-	
-	
-	
+
+
+
+
 
 	
 }

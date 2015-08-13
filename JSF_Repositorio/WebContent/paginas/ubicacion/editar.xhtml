@@ -27,13 +27,13 @@
                     <div class="content-header">
                         <div class="header-section">
                             <h1>
-                                <i class="fa fa-table"></i>Mantenimiento<br/><small>HTML tables can become fully dynamic with cool features!</small>
+                                <i class="fa fa-table"></i>Mantenimiento Ubicaci&oacute;n<br/>
                             </h1>
                         </div>
                     </div>
                     <ul class="breadcrumb breadcrumb-top">
-                        <li><a href="#{request.contextPath}/paginas/ubicacion/mantenimiento.xhtml">Ubicacion</a></li>
-                        <li><a href="">Nuevo</a></li>
+                        <li><a href="#{request.contextPath}/paginas/ubicacion/mantenimiento.xhtml">Ubicaci&oacute;n</a></li>
+                        <li>Nuevo</li>
                     </ul>
                     <!-- END Datatables Header -->
 
@@ -46,7 +46,7 @@
 
                     <!-- Mini Top Stats Row -->
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <!-- Form Validation Example Block -->
                             <div class="block">
                                 <!-- Form Validation Example Title -->
@@ -59,25 +59,25 @@
                                 <h:form id="form-validation"  styleClass="form-horizontal form-bordered">
                                
                                     <fieldset>
-                                        <legend><i class="fa fa-angle-right"></i>Insercion</legend>
+                                        <legend><i class="fa fa-angle-right"></i>Inserci&oacute;n</legend>
                                         <div class="form-group">
-                                            <label class="col-md-4 control-label" for="val_username">Codigo <span class="text-danger">*</span></label>
+                                            <label class="col-md-4 control-label" for="val_username">C&oacute;digo <span class="text-danger">*</span></label>
                                             <div class="col-md-6">
                             					<div class="input-group">
                                         		
-												<p:inputText value="#{ubicacionManagedBean.ubicacion.codigo}" id="codigo" name="ubicacion-codigo" required="true" placeholder="Ingresa codigo..." >
+												<p:inputText value="#{ubicacionManagedBean.ubicacion.codigo}" id="codigo" name="ubicacion-codigo" required="true" placeholder="Ingresa C&oacute;digo..." >
 												</p:inputText>
 												
 										</div>
                                             </div>
                                         </div>
                                    	<div class="form-group">
-                                        <label class="col-md-4 control-label" for="masked_phone_ext">Ubicacion <span class="text-danger">*</span></label>
+                                        <label class="col-md-4 control-label" for="masked_phone_ext">Ubicaci&oacute;n <span class="text-danger">*</span></label>
                                         <div class="col-md-6">
 
                                          <div class="input-group">
                                         		
-												<p:inputText value="#{ubicacionManagedBean.ubicacion.ubicacion}" id="ubicacion" name="ubicacion-ubicacion" required="true" placeholder="Ingresa ubicacion..." >
+												<p:inputText size="60" value="#{ubicacionManagedBean.ubicacion.ubicacion}" id="ubicacion" name="ubicacion-ubicacion" required="true" placeholder="Ingresa Ubicaci&oacute;n..." >
 												</p:inputText>
 												
 										</div>

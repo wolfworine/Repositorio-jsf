@@ -27,13 +27,14 @@
                     <div class="content-header">
                         <div class="header-section">
                             <h1>
-                                <i class="fa fa-table"></i>Mantenimiento<br/><small>HTML tables can become fully dynamic with cool features!</small>
+                               <i class="fa fa-table"></i>Mantenimiento Suministro<br/>
                             </h1>
                         </div>
                     </div>
                     <ul class="breadcrumb breadcrumb-top">
-                        <li>Cargo</li>
-                        <li><a href="">Nuevo</a></li>
+                        <li><a href="#{request.contextPath}/paginas/rol/mantenimiento.xhtml">Rol</a></li>
+                        <li><a href="#{request.contextPath}/paginas/rol/mantenimiento_suministro.xhtml">Suministro</a></li>
+                        <li>Mantenimiento </li>
                     </ul>
                     <!-- END Datatables Header -->
 
@@ -46,7 +47,7 @@
 
                     <!-- Mini Top Stats Row -->
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <!-- Form Validation Example Block -->
                             <div class="block">
                                 <!-- Form Validation Example Title -->
@@ -74,13 +75,13 @@
                                         
                                         
                                    <div class="form-group">
-                                        <label class="col-md-4 control-label" for="masked_phone_ext">Tipo <span class="text-danger">*</span></label>
+                                        <label class="col-md-4 control-label" for="masked_phone_ext">Rol  <span class="text-danger">*</span></label>
                                         <div class="col-md-6">
 
                                          <div class="input-group">
                                         		
 
-							            <h:selectOneMenu id="Rol" value="#{rolManagedBean.selecSuministro.id_rol}" required="true" label="Tipo">
+							            <h:selectOneMenu  id="Rol" value="#{rolManagedBean.selecSuministro.id_rol}" required="true" label="Rol" disabled="true">
 							            <f:selectItem itemLabel="Selecciona uno" itemValue="" noSelectionOption="true" />
 										<f:selectItems var="r" value="#{rolManagedBean.roles}" itemLabel="#{r.nombre}"  itemValue="#{r.id}"  ></f:selectItems>
 							            </h:selectOneMenu>
@@ -98,7 +99,7 @@
 
                                          <div class="input-group">
                                         		
-												<p:inputText value="#{rolManagedBean.selecSuministro.nombre}" id="descripcion" name="rol-descripcion" required="true" placeholder="Ingresa Descripcion..." >
+												<p:inputText  size="88" value="#{rolManagedBean.selecSuministro.nombre}" id="descripcion" name="rol-descripcion" required="true" placeholder="Ingresa Descripcion..." >
 												</p:inputText>
 												
 										</div>

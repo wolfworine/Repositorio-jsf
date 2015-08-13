@@ -46,29 +46,20 @@
 						paginator="true"  selection="#{aplicacionManagedBean.selecRol}" 
 						selectionMode="single" rowKey="#{r.id}">
 					
-						<p:column  filterBy="#{r.nombre}" headerText="Nombre" styleClass="text-center" width="300">
+						<p:column  filterBy="#{r.nombre}" headerText="Nombre"  >
 							
 							#{r.nombre}
 						</p:column>
 					
-						<p:column filterBy="#{r.tipo}" headerText="Tipo"  width="100">
+						<p:column filterBy="#{r.tipo}" headerText="Tipo" width="130" >
 						<span class="label label-primary">#{r.tipo}</span>
 						</p:column>
 							
-						<p:column filterBy="#{r.ubicacion}" headerText="Ubicacion" styleClass="text-center" width="100">
+						<p:column filterBy="#{r.ubicacion}" headerText="Ubicacion" width="130"  >
 						<span class="label label-primary">#{r.ubicacion}</span>
 						</p:column>
-						
-					
-						<p:column filterBy="#{r.area}" headerText="Area" width="200">
-						<span class="label label-primary">#{r.area}</span>
-						</p:column>
-						
-						<p:column filterBy="#{r.cargo}" headerText="Cargo" width="200">
-						<span class="label label-primary">#{r.cargo}</span>
-						</p:column>
-						
-						<p:column filterBy="#{r.ambito}" headerText="Ambito" width="100">
+							
+						<p:column filterBy="#{r.ambito}" headerText="Ambito" width="130"  >
 						<span class="label label-primary">#{r.ambito}</span>
 						</p:column>
 						

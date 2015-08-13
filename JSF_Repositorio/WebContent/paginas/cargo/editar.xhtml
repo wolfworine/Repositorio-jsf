@@ -20,20 +20,18 @@
 	
 	
 <ui:define name="content"> 
-
-  
  	<!-- Dashboard Header -->
                     <!-- For an image header add the class 'content-header-media' and an image as in the following example -->
                     <div class="content-header">
                         <div class="header-section">
                             <h1>
-                                <i class="fa fa-table"></i>Mantenimiento<br/><small>HTML tables can become fully dynamic with cool features!</small>
+                                <i class="fa fa-table"></i>Mantenimiento Cargo<br/>
                             </h1>
                         </div>
                     </div>
                     <ul class="breadcrumb breadcrumb-top">
-                        <li>Cargo</li>
-                        <li><a href="">Nuevo</a></li>
+                        <li><a href="#{request.contextPath}/paginas/cargo/mantenimiento.xhtml">Cargo</a></li>
+                        <li>Mantenimiento</li>
                     </ul>
                     <!-- END Datatables Header -->
 
@@ -44,27 +42,27 @@
                         </div>
                     <!-- END Dashboard Header -->
 
+
                     <!-- Mini Top Stats Row -->
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <!-- Form Validation Example Block -->
                             <div class="block">
                                 <!-- Form Validation Example Title -->
                                 <div class="block-title">
-                                    <h2><strong>Formulario</strong> Nuevos Cargos</h2>
+                                    <h2><strong>Formulario</strong> Insertar  Cargos</h2>
                                 </div>
                                 <!-- END Form Validation Example Title -->
 
                                 <!-- Form Validation Example Content -->
                                 <h:form id="form-validation"  styleClass="form-horizontal form-bordered">
-                               
+                               	
                                     <fieldset>
-                                        <legend><i class="fa fa-angle-right"></i>Insercion</legend>
+                                        <legend><i class="fa fa-angle-right"></i>Insertar</legend>
                                         <div class="form-group">
-                                            <label class="col-md-6 control-label" for="val_username">Codigo <span class="text-danger">*</span></label>
-                                            <div class="col-md-8">
+                                            <label class="col-md-4 control-label" for="val_username">Codigo <span class="text-danger">*</span></label>
+                                            <div class="col-md-6">
                             					<div class="input-group">
-                                        		
 												<p:inputText value="#{cargoManagedBean.cargo.codigo}" id="codigo" name="cargo-codigo" required="true" placeholder="Ingresa codigo..." >
 												</p:inputText>
 												
@@ -72,12 +70,12 @@
                                             </div>
                                         </div>
                                    	<div class="form-group">
-                                        <label class="col-md-6 control-label" for="masked_phone_ext">Nombre <span class="text-danger">*</span></label>
-                                        <div class="col-md-8">
+                                        <label class="col-md-4 control-label" for="masked_phone_ext">Cargo<span class="text-danger">*</span></label>
+                                        <div class="col-md-6">
 
                                          <div class="input-group">
                                         		
-												<p:inputText value="#{cargoManagedBean.cargo.nombre}" id="cargo" name="cargo-nombre" required="true" placeholder="Ingresa Area..." >
+												<p:inputText size="60"  value="#{cargoManagedBean.cargo.nombre}" id="nombre" name="cargo-nombre" required="true" placeholder="Ingresa Cargo..." >
 												</p:inputText>
 												
 										</div>

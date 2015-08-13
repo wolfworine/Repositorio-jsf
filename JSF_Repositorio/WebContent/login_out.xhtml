@@ -76,8 +76,8 @@
             <!-- Login Title -->
             <div class="login-title text-right">
                 <h1>
-                    <img src="#{request.contextPath}/resources/img/placeholders/avatars/avatar2.jpg" alt="avatar" class="img-circle pull-left"/>
-                    <strong>John</strong> Doe<br/>
+                    <img src="#{request.contextPath}/resources/img/logo4.gif" alt="avatar" class="img-rectangle pull-left"/>
+                    <strong>#{loginManagedBean.nombrecompleto}</strong><br/>
 
                 </h1>
             </div>
@@ -85,20 +85,23 @@
 
             <!-- Login Block -->
             <div class="block">
-                <form action="#{request.contextPath}/welcome.xhtml" method="post" class="form-horizontal push">
+            <h:form styleClass="form-horizontal push">
+             
                     <div class="form-group">
                         <div class="col-xs-12">
                             <div class="input-group">
-                                <input type="password" id="lock-password" name="lock-password" class="form-control" placeholder="Password"/>
+                            <p:password value="#{loginManagedBean.password}" id="login-password" name="login-password" class="form-control" placeholder="Password"></p:password>
+
                                 <div class="input-group-btn">
-                                    <button type="submit" class="btn btn-primary"><i class="fa fa-unlock-alt"></i> Unlock</button>
+                                    <p:commandButton action="#{loginManagedBean.unlock}" ajax="false" styleClass="btn btn-primary" icon="fa fa-unlock-alt" value="Unlock"></p:commandButton>
+                       
                                 </div>
                             </div>
                         </div>
                     </div>
-                </form>
+                </h:form>
                 <p class="text-center">
-                    <a href="#{request.contextPath}/logueo.xhtml"><small>Not John Doe?</small></a>
+                    <a href="#{request.contextPath}/logueo.xhtml"><small>Not #{loginManagedBean.nombrecompleto}?</small></a>
                 </p>
             </div>
             <!-- END Login Block -->

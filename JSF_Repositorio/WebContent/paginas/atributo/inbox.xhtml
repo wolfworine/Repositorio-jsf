@@ -24,13 +24,14 @@
                     <div class="content-header">
                         <div class="header-section">
                             <h1>
-                                <i class="fa fa-table"></i>Mantenimiento<br/><small>HTML tables can become fully dynamic with cool features!</small>
+                                <i class="fa fa-table"></i>Mantenimiento Inbox<br/>
                             </h1>
                         </div>
                     </div>
                     <ul class="breadcrumb breadcrumb-top">
-                        <li>Suministro Atributo</li>
-                        <li><a href="">Mantenimiento Inbox</a></li>
+                        <li><a href="#{request.contextPath}/paginas/suministro/mantenimiento.xhtml">Suministro</a></li>
+                        <li><a href="#{request.contextPath}/paginas/atributo/mantenimiento.xhtml">Atributo </a></li>
+                        <li>Mantenimiento Roles</li>
                     </ul>
                     <!-- END Datatables Header -->
 
@@ -39,22 +40,19 @@
                         <div class="block-title">
                            
                     <ul class="breadcrumb breadcrumb-top">
-                        <li><h2><strong><a href="#{request.contextPath}/paginas/atributo/roles.xhtml">Roles</a></strong> </h2></li>
+                        <li><h2><strong><a href="#{request.contextPath}/paginas/atributo/mantenimiento.xhtml">Roles</a></strong> </h2></li>
                         <li><h2><strong><a href="#{request.contextPath}/paginas/atributo/grupos.xhtml"> Grupos</a></strong> </h2></li>
                         <li><h2><strong><a href="#{request.contextPath}/paginas/atributo/inbox.xhtml"> Inbox</a></strong> </h2></li>
                         <li><h2><strong><a href="#{request.contextPath}/paginas/atributo/defaultinbox.xhtml">DefaultInbox</a></strong></h2> </li>
                     </ul>
                         </div>
-             
 
-             
-             
    					<h:form>
 	
    					
              		  <div class="table-responsive">
-					   <p:dataTable  styleClass="table table-vcenter table-condensed table-bordered" value="#{rolManagedBean.ainbox}" var="a" rows="20"
-						paginator="true"  selection="#{rolManagedBean.selectAtributo}" 
+					   <p:dataTable  styleClass="table table-vcenter table-condensed table-bordered" value="#{suministroManagedBean.ainbox}" var="a" rows="20"
+						paginator="true"  selection="#{suministroManagedBean.selectAtributo}" 
 						selectionMode="single" rowKey="#{a.id}" >
 					
 	
@@ -71,23 +69,25 @@
 						<span class="label label-primary">#{a.atributo_nombre}</span>
 						</p:column>
 						
-						<p:column  headerText="Aplicaccion" styleClass="text-center" width="120">		
+						<p:column  headerText="Aplicacion" styleClass="text-center" width="120">		
 							#{a.aplicacion}
 						</p:column>
 						
 					</p:dataTable>
 					</div>
-					<h3>Export Page Data Only</h3>
-                       
-                       
-                       
-                        
+               
 				 				 <div class="form-group form-actions">
-                                        <div class="col-md-12 col-md-offset-2 center">
+                                        <div class="col-md-8 col-md-offset-4">
                                         
-
+                                          <div class="col-xs-4">
+                                         <p:commandButton action="#{suministroManagedBean.nuevo_atributo_inbox}" ajax="false" styleClass="btn btn-sm btn-primary" icon="fa fa-ok" value="Nuevo"></p:commandButton> 
+                                         </div>
+                                         
+                                          <div class="col-xs-4">
+                                         <p:commandButton action="#{suministroManagedBean.editar_atributo_inbox}" ajax="false" styleClass="btn btn-sm btn-warning" icon="fa fa-repeat" value="Modificar"></p:commandButton>
+                                      	 </div>
                                       	 
-
+             
                                         </div>
                                     </div>
 				  

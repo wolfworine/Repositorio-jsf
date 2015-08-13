@@ -24,13 +24,13 @@
                     <div class="content-header">
                         <div class="header-section">
                             <h1>
-                                <i class="fa fa-table"></i>Mantenimiento<br/><small>HTML tables can become fully dynamic with cool features!</small>
+                                <i class="fa fa-table"></i>Mantenimiento Usuario<br/>
                             </h1>
                         </div>
                     </div>
                     <ul class="breadcrumb breadcrumb-top">
-                        <li>Usuario</li>
-                        <li><a href="">Mantenimiento</a></li>
+                        <li><a href="#{request.contextPath}/paginas/usuario/mantenimiento.xhtml">Usuario</a></li>
+                        <li>Mantenimiento</li>
                     </ul>
                     <!-- END Datatables Header -->
 
@@ -44,23 +44,16 @@
              		  <div class="table-responsive">
 					   <p:dataTable  styleClass="table table-vcenter table-condensed table-bordered" value="#{usuarioManagedBean.usuarios}" var="u" rows="20"
 						paginator="true"  selection="#{usuarioManagedBean.selecUsuario}" 
-						selectionMode="single" rowKey="#{u.id}" filterValue="#{usuarioManagedBean.filteredUsuarios}" >
+						selectionMode="single" rowKey="#{u.id}" >
 					
-						<p:column  filterBy="#{u.id}" headerText="Id" styleClass="text-center">
-							
-							#{u.id}
-						</p:column>
-					
-						<p:column filterBy="#{u.usuario}" headerText="Usuario" styleClass="text-center">
-						<span class="label label-primary">#{u.usuario}</span>
+
+										
+						<p:column filterBy="#{u.firstname}" headerText="Nombre">
+						<span >#{u.firstname}</span>
 						</p:column>
 						
-						<p:column filterBy="#{u.firstname}" headerText="Nombre" >
-						<span class="label label-primary">#{u.firstname}</span>
-						</p:column>
-						
-						<p:column filterBy="#{u.lasname}" headerText="Apellido" styleClass="text-center">
-						<span class="label label-primary">#{u.lasname}</span>
+						<p:column filterBy="#{u.lastname}" headerText="Apellido">
+						<span >#{u.lastname}</span>
 						</p:column>
 						
 						<p:column filterBy="#{u.email}" headerText="Email" >
@@ -74,7 +67,19 @@
 			
 						
 					</p:dataTable>
-					</div>
+									<div class="form-group form-actions">
+                                        <div class="col-md-8 col-md-offset-4">
+                                        
+                                          <div class="col-xs-4">
+                                         <p:commandButton action="#{usuarioManagedBean.nuevo}" ajax="false" styleClass="btn btn-sm btn-primary" icon="fa fa-ok" value="Nuevo"></p:commandButton> 
+                                         </div>
+                                         
+                                          <div class="col-xs-4">
+                                         <p:commandButton action="#{usuarioManagedBean.editar}" ajax="false" styleClass="btn btn-sm btn-warning" icon="fa fa-repeat" value="Modificar"></p:commandButton>
+                                      	 </div>
+                                        </div>
+                                    </div>
+						</div>
 					</h:form>
                     </div>
                     <!-- END Datatables Content -->

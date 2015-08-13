@@ -48,7 +48,7 @@
 
                     <!-- Mini Top Stats Row -->
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <!-- Form Validation Example Block -->
                             <div class="block">
                                 <!-- Form Validation Example Title -->
@@ -76,13 +76,13 @@
                                         
                                         
                                    <div class="form-group">
-                                        <label class="col-md-4 control-label" for="masked_phone_ext">Tipo <span class="text-danger">*</span></label>
+                                        <label class="col-md-4 control-label" for="masked_phone_ext">Rol <span class="text-danger">*</span></label>
                                         <div class="col-md-6">
 
                                          <div class="input-group">
                                         		
 
-							            <h:selectOneMenu id="Rol" value="#{aplicacionManagedBean.selecSuministro.id_rol}" required="true" label="Tipo">
+							            <h:selectOneMenu id="Rol" value="#{aplicacionManagedBean.selecSuministro.id_rol}" required="true" label="Rol">
 							            <f:selectItem itemLabel="Selecciona uno" itemValue="" noSelectionOption="true" />
 										<f:selectItems var="r" value="#{aplicacionManagedBean.roles}" itemLabel="#{r.nombre}"  itemValue="#{r.id}"  ></f:selectItems>
 							            </h:selectOneMenu>
@@ -100,7 +100,7 @@
 
                                          <div class="input-group">
                                         		
-												<p:inputText value="#{aplicacionManagedBean.selecSuministro.nombre}" id="descripcion" name="rol-descripcion" required="true" placeholder="Ingresa Descripcion..." >
+												<p:inputText size="88" value="#{aplicacionManagedBean.selecSuministro.nombre}" id="descripcion" name="rol-descripcion" required="true" placeholder="Ingresa Descripcion..." >
 												</p:inputText>
 												
 										</div>

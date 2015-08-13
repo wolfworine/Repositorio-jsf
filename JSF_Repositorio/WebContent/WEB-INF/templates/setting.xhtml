@@ -4,58 +4,50 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
 
 <body>
+
                     <!-- Modal Body -->
                     <div class="modal-body">
-                        <form action="index.html" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered" onsubmit="return false;">
+                    <h:form enctype="multipart/form-data"  styleClass="form-horizontal form-bordered" onsubmit="return false;">
                             <fieldset>
                                 <legend>Vital Info</legend>
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label">Username</label>
+                                    <label class="col-md-4 control-label">Email</label>
                                     <div class="col-md-8">
-                                        <p class="form-control-static">Admin</p>
+                                        <p class="form-control-static">#{loginManagedBean.usuario1.email}</p>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label" for="user-settings-email">Email</label>
-                                    <div class="col-md-8">
-                                        <input type="email" id="user-settings-email" name="user-settings-email" class="form-control" value="admin@example.com"/>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label" for="user-settings-notifications">Email Notifications</label>
-                                    <div class="col-md-8">
-                                        <label class="switch switch-primary">
-                                            <input type="checkbox" id="user-settings-notifications" name="user-settings-notifications" value="1" />
-                                            <span></span>
-                                        </label>
-                                    </div>
-                                </div>
+
+
                             </fieldset>
                             <fieldset>
                                 <legend>Password Update</legend>
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="user-settings-password">New Password</label>
                                     <div class="col-md-8">
-                                        <input type="password" id="user-settings-password" name="user-settings-password" class="form-control" placeholder="Please choose a complex one.."/>
+                                     <p:password value="#{loginManagedBean.pass}" id="user-settings-password" name="user-settings-password" styleClass="form-control" placeholder="Please choose a complex one.."></p:password>
+                                    
+                       
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="user-settings-repassword">Confirm New Password</label>
                                     <div class="col-md-8">
-                                        <input type="password" id="user-settings-repassword" name="user-settings-repassword" class="form-control" placeholder="..and confirm it!"/>
+                                         <p:password value="#{loginManagedBean.repass}" id="user-settings-repassword" name="user-settings-repassword" styleClass="form-control" placeholder="..and confirm it!"></p:password>
                                     </div>
                                 </div>
                             </fieldset>
                             <div class="form-group form-actions">
                                 <div class="col-xs-12 text-right">
                                     <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-sm btn-primary">Save Changes</button>
+                                    <p:commandButton action="#{loginManagedBean.cambiarpass}" ajax="false" styleClass="btn btn-sm btn-primary" icon="fa fa-plus" value="Save Changes"></p:commandButton>
                                 </div>
                             </div>
-                        </form>
+                        </h:form>
                     </div>
                     <!-- END Modal Body -->
 </body>

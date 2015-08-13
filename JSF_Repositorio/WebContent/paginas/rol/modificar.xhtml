@@ -27,13 +27,13 @@
                     <div class="content-header">
                         <div class="header-section">
                             <h1>
-                                <i class="fa fa-table"></i>Mantenimiento<br/><small>HTML tables can become fully dynamic with cool features!</small>
+                                <i class="fa fa-table"></i>Mantenimiento Rol<br/>
                             </h1>
                         </div>
                     </div>
-                    <ul class="breadcrumb breadcrumb-top">
-                        <li>Cargo</li>
-                        <li><a href="">Nuevo</a></li>
+                   <ul class="breadcrumb breadcrumb-top">
+                        <li><a href="#{request.contextPath}/paginas/rol/mantenimiento.xhtml">Rol</a></li>
+                        <li>Mantenimiento</li>
                     </ul>
                     <!-- END Datatables Header -->
 
@@ -46,7 +46,7 @@
 
                     <!-- Mini Top Stats Row -->
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <!-- Form Validation Example Block -->
                             <div class="block">
                                 <!-- Form Validation Example Title -->
@@ -78,7 +78,7 @@
 
                                          <div class="input-group">
                                         		
-												<p:inputText value="#{rolManagedBean.selecRol.nombre}" id="nombre" name="rol-nombre" required="true" placeholder="Ingresa Nombre..." >
+												<p:inputText size="60" value="#{rolManagedBean.selecRol.nombre}" id="nombre" name="rol-nombre" required="true" placeholder="Ingresa Nombre..." >
 												</p:inputText>
 												
 										</div>
@@ -91,7 +91,7 @@
 
                                          <div class="input-group">
                                         		
-												<p:inputText value="#{rolManagedBean.selecRol.descripcion}" id="descripcion" name="rol-descripcion" required="true" placeholder="Ingresa Descripcion..." >
+												<p:inputText size="60" value="#{rolManagedBean.selecRol.descripcion}" id="descripcion" name="rol-descripcion" required="true" placeholder="Ingresa Descripcion..." >
 												</p:inputText>
 												
 										</div>
@@ -122,7 +122,7 @@
 
                                          <div class="input-group">
                                         		
-												<p:inputText value="#{rolManagedBean.selecRol.regla_negocio}" id="regla_negocio" name="rol-regla_negocio" required="true" placeholder="Ingresa regla_negocio..." >
+												<p:inputText size="60"  value="#{rolManagedBean.selecRol.regla_negocio}" id="regla_negocio" name="rol-regla_negocio" required="true" placeholder="Ingresa regla_negocio..." >
 												</p:inputText>
 												
 										</div>
@@ -148,12 +148,12 @@
                                     </div> 
                                     
                                     <div class="form-group">
-                                        <label class="col-md-4 control-label" for="masked_phone_ext">Propietario rol  <span class="text-danger">*</span></label>
+                                        <label class="col-md-4 control-label" for="masked_phone_ext">Propietario rol </label>
                                         <div class="col-md-6">
 
                                          <div class="input-group">
                                         		
-												<p:inputText value="#{rolManagedBean.rol.propietario_rol}" id="propietario_rol" name="rol-propietario_rol"  placeholder="Ingresa propietario_rol..." >
+												<p:inputText size="60" value="#{rolManagedBean.rol.propietario_rol}" id="propietario_rol" name="rol-propietario_rol"  placeholder="Ingresa propietario_rol..." >
 												</p:inputText>
 												
 										</div>
@@ -161,12 +161,12 @@
                                     </div> 
                                     
                                     <div class="form-group">
-                                        <label class="col-md-4 control-label" for="masked_phone_ext">Propietario Persona <span class="text-danger">*</span></label>
+                                        <label class="col-md-4 control-label" for="masked_phone_ext">Propietario Persona </label>
                                         <div class="col-md-6">
 
                                          <div class="input-group">
                                         		 <f:selectItem itemLabel="Selecciona uno" itemValue="" noSelectionOption="true" />
-												<p:inputText value="#{rolManagedBean.selecRol.propietario_persona}" id="propietario_persona" name="rol-propietario_persona" placeholder="Ingresa propietario_persona..." >
+												<p:inputText size="60" value="#{rolManagedBean.selecRol.propietario_persona}" id="propietario_persona" name="rol-propietario_persona" placeholder="Ingresa propietario_persona..." >
 												</p:inputText>
 												
 										</div>

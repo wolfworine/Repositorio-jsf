@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 
 import pe.edu.cibertec.proyemp.model.Area;
 import pe.edu.cibertec.proyemp.model.Rol;
@@ -23,9 +24,7 @@ public class AreaManagedBean{
 	private List<Area> areas = new ArrayList<Area>();
 	
 	private List<Rol> roles = new ArrayList<Rol>();
-	
-	private List<Area> filteredAreas = new ArrayList<Area>();
-	
+
 	private Area selecArea = new Area();
 	
 	private Area busqueda = new Area();
@@ -87,6 +86,23 @@ public class AreaManagedBean{
 	
 
 	
+    public void save(ActionEvent actionEvent) {
+        addMessage("Data saved");
+    }
+     
+    public void update(ActionEvent actionEvent) {
+        addMessage("Data updated");
+    }
+     
+    public void delete(ActionEvent actionEvent) {
+        addMessage("Data deleted");
+    }
+ 
+    public void addMessage(String summary) {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary,  null);
+        FacesContext.getCurrentInstance().addMessage(null, message);
+    }
+	
 /*	public String buscar() {
 		filteredAreas =		areaService.getAreaRepository().
 				findByCodigoOrArea(busqueda.getCodigo(), busqueda.getArea());
@@ -115,19 +131,7 @@ public class AreaManagedBean{
 	public void setSelecArea(Area selecArea) {
 		this.selecArea = selecArea;
 	}
-
-
-	public List<Area> getFilteredAreas() {
-		return filteredAreas;
-	}
-
-
-	public void setFilteredAreas(List<Area> filteredAreas) {
-		this.filteredAreas = filteredAreas;
-	}
 	
-	
-
 	public Area getBusqueda() {
 		return busqueda;
 	}
