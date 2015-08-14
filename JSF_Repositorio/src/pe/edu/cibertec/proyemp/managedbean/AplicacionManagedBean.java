@@ -14,6 +14,7 @@ import pe.edu.cibertec.proyemp.model.Aplicacion;
 import pe.edu.cibertec.proyemp.model.Area;
 import pe.edu.cibertec.proyemp.model.Atributo;
 import pe.edu.cibertec.proyemp.model.Cargo;
+import pe.edu.cibertec.proyemp.model.Detalle;
 import pe.edu.cibertec.proyemp.model.Rol;
 import pe.edu.cibertec.proyemp.model.Suministro;
 import pe.edu.cibertec.proyemp.model.Ubicacion;
@@ -21,6 +22,7 @@ import pe.edu.cibertec.proyemp.service.AplicacionService;
 import pe.edu.cibertec.proyemp.service.AreaService;
 import pe.edu.cibertec.proyemp.service.AtributoService;
 import pe.edu.cibertec.proyemp.service.CargoService;
+import pe.edu.cibertec.proyemp.service.DetalleService;
 import pe.edu.cibertec.proyemp.service.RolService;
 import pe.edu.cibertec.proyemp.service.SuministroService;
 import pe.edu.cibertec.proyemp.service.UbicacionService;
@@ -77,6 +79,18 @@ public class AplicacionManagedBean{
 	private List<Atributo> adefaultinbox=new ArrayList<Atributo>();
 	private Atributo atributo=new Atributo();
 	private Atributo selectAtributo = new Atributo();
+	
+	//Detalle atributo
+	private List<Detalle> detalles = new ArrayList<Detalle>();
+	private List<Detalle> droles = new ArrayList<Detalle>();
+	private List<Detalle> dgrupos = new ArrayList<Detalle>();
+	private List<Detalle> dinbox = new ArrayList<Detalle>();
+	private List<Detalle> ddefaultinbox = new ArrayList<Detalle>();	
+	
+	private List<Detalle> busqueda = new ArrayList<Detalle>();	
+	
+	@ManagedProperty(value = "#{detalleService}")
+	private DetalleService detalleService;
 	
 	@ManagedProperty(value = "#{aplicacionService}")
 	private AplicacionService aplicacionService;
@@ -286,7 +300,6 @@ public class AplicacionManagedBean{
 				System.out.println("ainbox"+aroles);
 				System.out.println("adefaultinbox"+adefaultinbox);
 	
-
 				return "/paginas/aplicacion/mantenimiento_atributo.xhtml?faces-redirect=true";
 		}
 		// Atributo Roles
@@ -294,12 +307,13 @@ public class AplicacionManagedBean{
 			atributo.setId_rol(selecSuministro.getId_rol());
 			atributo.setId_suministro(selecSuministro.getId());
 			atributo.setAplicacion(selecAplicacion.getAplicacion());
+			detalles=  detalleService.getDetalleRepository().findParametro(rolesa);
 			atributo.setParametro(rolesa);
 			return "/paginas/aplicacion/editar_atributo.xhtml?faces-redirect=true";
 		}
 		
 		public String  editar_atributo_rol() {
-
+			detalles=  detalleService.getDetalleRepository().findParametro(rolesa);
 			return "/paginas/aplicacion/modificar_atributo.xhtml?faces-redirect=true";
 		}
 		
@@ -308,13 +322,13 @@ public class AplicacionManagedBean{
 			atributo.setId_rol(selecSuministro.getId_rol());
 			atributo.setId_suministro(selecSuministro.getId());
 			atributo.setAplicacion(selecAplicacion.getAplicacion());
+			detalles=  detalleService.getDetalleRepository().findParametro(gruposa);
 			atributo.setParametro(gruposa);
 			return "/paginas/aplicacion/editar_atributo.xhtml?faces-redirect=true";
 		}
 		
 		public String  editar_atributo_grupo() {
-
-			
+			detalles=  detalleService.getDetalleRepository().findParametro(gruposa);
 			return "/paginas/aplicacion/modificar_atributo.xhtml?faces-redirect=true";
 		}
 		
@@ -323,13 +337,13 @@ public class AplicacionManagedBean{
 			atributo.setId_rol(selecSuministro.getId_rol());
 			atributo.setId_suministro(selecSuministro.getId());
 			atributo.setAplicacion(selecAplicacion.getAplicacion());
+			detalles=  detalleService.getDetalleRepository().findParametro(inboxa);
 			atributo.setParametro(inboxa);
 			return "/paginas/aplicacion/editar_atributo.xhtml?faces-redirect=true";
 		}
 		
 		public String  editar_atributo_inbox() {
-
-			
+			detalles=  detalleService.getDetalleRepository().findParametro(inboxa);
 			return "/paginas/aplicacion/modificar_atributo.xhtml?faces-redirect=true";
 		}
 		
@@ -338,13 +352,13 @@ public class AplicacionManagedBean{
 			atributo.setId_rol(selecSuministro.getId_rol());
 			atributo.setId_suministro(selecSuministro.getId());
 			atributo.setAplicacion(selecAplicacion.getAplicacion());
+			detalles=  detalleService.getDetalleRepository().findParametro(defaultinboxa);
 			atributo.setParametro(defaultinboxa);
 			return "/paginas/aplicacion/editar_atributo.xhtml?faces-redirect=true";
 		}
 		
 		public String  editar_atributo_defaultinboxa() {
-
-			
+			detalles=  detalleService.getDetalleRepository().findParametro(defaultinboxa);
 			return "/paginas/aplicacion/modificar_atributo.xhtml?faces-redirect=true";
 		}
 		
@@ -354,7 +368,9 @@ public class AplicacionManagedBean{
 		}
 		
 		public String  registrar_atributo() {
-			
+			busqueda=detalleService.getDetalleRepository().findIdParametro(atributo.getAtributo_codigo(),atributo.getParametro());			
+			System.out.println(busqueda.get(0).getAtributo_nombre());
+			atributo.setAtributo_nombre(busqueda.get(0).getAtributo_nombre());
 			atributoService.getAtributoRepository().save(atributo);
 			Long id_rol=selecSuministro.getId_rol();
 			Long id_suministro=selecSuministro.getId();
@@ -369,7 +385,12 @@ public class AplicacionManagedBean{
 		
 		
 		public String  modificar_atributo() {
+			
+			busqueda=detalleService.getDetalleRepository().findIdParametro(selectAtributo.getAtributo_codigo(),selectAtributo.getParametro());
+			System.out.println(busqueda.get(0).getAtributo_nombre());
+			selectAtributo.setAtributo_nombre(busqueda.get(0).getAtributo_nombre());
 			atributoService.getAtributoRepository().save(selectAtributo);
+	
 			FacesContext context = FacesContext.getCurrentInstance();
 			context.addMessage(null, new FacesMessage(
 					"Registro " + selectAtributo.getId() + " actualizado"
@@ -666,6 +687,62 @@ public class AplicacionManagedBean{
 
 		public void setDefaultinboxa(String defaultinboxa) {
 			this.defaultinboxa = defaultinboxa;
+		}
+
+		public List<Detalle> getDetalles() {
+			return detalles;
+		}
+
+		public void setDetalles(List<Detalle> detalles) {
+			this.detalles = detalles;
+		}
+
+		public List<Detalle> getDroles() {
+			return droles;
+		}
+
+		public void setDroles(List<Detalle> droles) {
+			this.droles = droles;
+		}
+
+		public List<Detalle> getDgrupos() {
+			return dgrupos;
+		}
+
+		public void setDgrupos(List<Detalle> dgrupos) {
+			this.dgrupos = dgrupos;
+		}
+
+		public List<Detalle> getDinbox() {
+			return dinbox;
+		}
+
+		public void setDinbox(List<Detalle> dinbox) {
+			this.dinbox = dinbox;
+		}
+
+		public List<Detalle> getDdefaultinbox() {
+			return ddefaultinbox;
+		}
+
+		public void setDdefaultinbox(List<Detalle> ddefaultinbox) {
+			this.ddefaultinbox = ddefaultinbox;
+		}
+
+		public List<Detalle> getBusqueda() {
+			return busqueda;
+		}
+
+		public void setBusqueda(List<Detalle> busqueda) {
+			this.busqueda = busqueda;
+		}
+
+		public DetalleService getDetalleService() {
+			return detalleService;
+		}
+
+		public void setDetalleService(DetalleService detalleService) {
+			this.detalleService = detalleService;
 		}
 
 

@@ -19,5 +19,13 @@ public interface DetalleRepository extends CrudRepository<Detalle, Long>{
 	@Query(FIND_BY_CODIGO)
 	public List<Detalle> findParametro(@Param("parametro") String parametro);
 
+	
+	public final static String FIND_BY_IDPARAMETRO= "SELECT d " + 
+            "FROM Detalle d " +
+            "WHERE d.atributo_codigo = :atributo_codigo and "+
+            "d.parametro = :parametro ";
+	@Query(FIND_BY_IDPARAMETRO)
+	public List<Detalle>  findIdParametro(@Param("atributo_codigo")String atributo_codigo,@Param("parametro") String parametro);
+
 
 }

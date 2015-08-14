@@ -121,31 +121,22 @@
                                         </div>
                                     </div>
                                     
-									<div class="form-group">
-                                        <label class="col-md-4 control-label" for="masked_phone_ext">Atributo codigo  <span class="text-danger">*</span></label>
+	                                <div class="form-group">
+                                        <label class="col-md-4 control-label" for="masked_phone_ext">Atributo Nombre <span class="text-danger">*</span></label>
                                         <div class="col-md-6">
 
                                          <div class="input-group">
                                         		
-												<p:inputText value="#{rolManagedBean.atributo.atributo_codigo}" id="atributo_codigo" name="atributo-codigo"  placeholder="Ingresa atributo_codigo..." >
-												</p:inputText>
-												
-										</div>
-                                        </div>
-                                    </div>  
-                                        
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label" for="masked_phone_ext">Atributo Nombre  <span class="text-danger">*</span></label>
-                                        <div class="col-md-6">
 
-                                         <div class="input-group">
-                                        		
-												<p:inputText  size="80" value="#{rolManagedBean.atributo.atributo_nombre}" id="atributo_nombre" name="atributo-nombre"  placeholder="Ingresa atributo_nombre..." >
-												</p:inputText>
+							            <h:selectOneMenu id="Detalle" value="#{rolManagedBean.atributo.atributo_codigo}" required="true" label="Tipo">
+							            <f:selectItem itemLabel="Selecciona uno" itemValue="" noSelectionOption="true" />
+										<f:selectItems var="r" value="#{rolManagedBean.detalles}" itemLabel="#{r.atributo_nombre}"  itemValue="#{r.atributo_codigo}"  ></f:selectItems>
+							            </h:selectOneMenu>
+
 												
 										</div>
                                         </div>
-                                    </div> 
+                                    </div>
                                     
                                      <div class="form-group">
                                         <label class="col-md-4 control-label" for="masked_phone_ext">Aplicacion </label>
