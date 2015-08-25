@@ -51,20 +51,20 @@
    		
    				
              		  <div class="table-responsive">
-					   <p:dataTable  styleClass="table table-vcenter table-condensed table-bordered" value="#{detalleManagedBean.droles}" var="a" rows="20"
+					   <p:dataTable  styleClass="table table-vcenter table-condensed table-bordered" value="#{detalleManagedBean.droles}" var="atributo" rows="20"
 						paginator="true"  selection="#{detalleManagedBean.selecDetalle}" 
-						selectionMode="single" rowKey="#{a.id}" >
-						
-						<p:column  headerText="Atributo_codigo" width="180">		
-							#{a.atributo_codigo}
+						selectionMode="single" rowKey="#{atributo.id}" >
+					
+						<p:column filterBy="#{atributo.atributo_codigo}" headerText="Atributo_codigo" width="180">		
+							#{atributo.atributo_codigo}
 						</p:column>
 						
-						<p:column  headerText="atributo_nombre" >
-						<span class="label label-primary">#{a.atributo_nombre}</span>
+						<p:column filterBy="#{atributo.atributo_nombre}" headerText="atributo_nombre" >
+						<span class="label label-primary">#{atributo.atributo_nombre}</span>
 						</p:column>
 						
-						<p:column headerText="parametro" styleClass="text-center" width="120">
-						<span class="label label-primary">#{a.parametro}</span>
+						<p:column  headerText="parametro" styleClass="text-center" width="120">
+						<span class="label label-primary">#{atributo.parametro}</span>
 						</p:column>
 						
 					</p:dataTable>

@@ -50,6 +50,14 @@
 							
 							#{r.nombre}
 						</p:column>
+						
+						<p:column filterBy="#{r.area}" headerText="Area" >
+						<span  >#{r.area}</span>
+						</p:column>
+						
+						<p:column filterBy="#{r.cargo}" headerText="Cargo">
+						<span >#{r.cargo}</span>
+						</p:column>
 					
 						<p:column filterBy="#{r.tipo}" headerText="Tipo" width="130" >
 						<span class="label label-primary">#{r.tipo}</span>

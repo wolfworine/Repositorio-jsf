@@ -55,11 +55,11 @@
 						paginator="true"  selection="#{detalleManagedBean.selecDetalle}" 
 						selectionMode="single" rowKey="#{a.id}" >
 						
-						<p:column  headerText="Atributo_codigo">		
+						<p:column filterBy="#{a.atributo_codigo}"  headerText="Atributo_codigo">		
 							#{a.atributo_codigo}
 						</p:column>
 						
-						<p:column  headerText="atributo_nombre">
+						<p:column  filterBy="#{a.atributo_nombre}"  headerText="atributo_nombre">
 						<span class="label label-primary">#{a.atributo_nombre}</span>
 						</p:column>
 						

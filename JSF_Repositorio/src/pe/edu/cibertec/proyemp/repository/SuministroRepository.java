@@ -18,5 +18,7 @@ public interface SuministroRepository extends CrudRepository<Suministro, Long>{
 	 @Query(FIND_BY_SUMINISTRO)
 	public List<Suministro> findSuministro(@Param("id_rol") Long id_rol);
 	 
+	 
+
 
 }

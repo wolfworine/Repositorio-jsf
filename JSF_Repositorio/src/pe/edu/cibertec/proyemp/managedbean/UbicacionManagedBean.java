@@ -22,8 +22,6 @@ public class UbicacionManagedBean {
 	
 	private List<Ubicacion> ubicaciones= new ArrayList<Ubicacion>();
 	
-	private List<Ubicacion> filteredUbicaciones= new ArrayList<Ubicacion>();
-	
 	private Ubicacion selecUbicacion= new Ubicacion();
 	
 	private Ubicacion ubicacion= new Ubicacion();
@@ -97,13 +95,6 @@ public class UbicacionManagedBean {
 		this.ubicacionService = ubicacionService;
 	}
 
-	public List<Ubicacion> getFilteredUbicaciones() {
-		return filteredUbicaciones;
-	}
-
-	public void setFilteredUbicaciones(List<Ubicacion> filteredUbicaciones) {
-		this.filteredUbicaciones = filteredUbicaciones;
-	}
 
 	public Ubicacion getUbicacion() {
 		return ubicacion;

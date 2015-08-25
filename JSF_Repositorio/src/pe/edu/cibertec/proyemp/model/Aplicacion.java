@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedStoredProcedureQuery;
+import javax.persistence.ParameterMode;
+import javax.persistence.StoredProcedureParameter;
 import javax.persistence.Table;
 
 
@@ -14,8 +17,13 @@ import javax.persistence.Table;
  * The persistent class for the aplicacion database table.
  * 
  */
+
+@NamedStoredProcedureQuery(name = "Aplication.buscarArea", procedureName = "buscarArea", parameters = {
+		  @StoredProcedureParameter(mode = ParameterMode.IN, name = "app", type = Integer.class),
+		  @StoredProcedureParameter(mode = ParameterMode.IN, name = "are1", type = Integer.class) })
 @Entity
 @Table(name = "aplicacion")
+
 public class Aplicacion implements Serializable{
 
 	/**
